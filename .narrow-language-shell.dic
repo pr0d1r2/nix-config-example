@@ -20,6 +20,7 @@ apply
 are
 argument
 arguments
+arm
 assert
 auth
 available
@@ -109,6 +110,7 @@ detached
 detect
 dev
 develop
+developer
 diff
 different
 dir
@@ -142,8 +144,10 @@ escape
 etc
 euo
 eval
+evaluates
 even
 every
+example
 exec
 executable
 exist
@@ -168,6 +172,7 @@ find
 finds
 first
 flag
+flake
 flakes
 following
 foo
@@ -233,6 +238,7 @@ library
 line
 lines
 link
+linux
 list
 load
 loaded
@@ -444,6 +450,7 @@ token
 toml
 tool
 tools
+toplevel
 tracker
 tree
 tries
