@@ -2,9 +2,15 @@
 
 **One flake closure to rule all architectures and OS.**
 
-Cross-platform Nix dev environment template with Claude Code integration. A single `flake.nix` defines macOS ARM, Linux x86_64, and Linux ARM -- same inputs, same overlays, same home-manager modules across all three. One closure, three platforms, zero drift.
+Cross-platform Nix dev environment template with Claude
+Code integration. A single `flake.nix` defines macOS ARM,
+Linux x86_64, and Linux ARM -- same inputs, same overlays,
+same home-manager modules across all three.
+One closure, three platforms, zero drift.
 
-**Builds and passes CI as-is** -- but intended as a starting point you fork and personalize for your org and machines.
+**Builds and passes CI as-is** -- but intended as a
+starting point you fork and personalize for your org
+and machines.
 
 Supports **macOS ARM** (nix-darwin), **Linux x86_64** and **Linux ARM** (NixOS).
 
@@ -14,7 +20,8 @@ Works out of the box with `developer` as the default username. To personalize:
 
 1. Fork this repo
 2. Edit `flake.nix`: change `username` and `hostname` in your machine config
-3. Create `home/users/<your-username>.nix` with your git identity (see `developer.nix` for the pattern)
+3. Create `home/users/<your-username>.nix` with your git
+  identity (see `developer.nix` for the pattern)
 4. Tune `home/modules/claude-code.nix`: model, thinking budget, presets
 5. Add your own home-manager modules under `home/modules/`
 6. Run:
@@ -39,7 +46,7 @@ sudo nixos-rebuild switch --flake .
 ## Configurations
 
 | Name | Platform | Use |
-|------|----------|-----|
+| ------ | ---------- | ----- |
 | `macos-arm` | aarch64-darwin | Apple Silicon Mac |
 | `linux` | x86_64-linux | x86 Linux / NixOS |
 | `linux-arm` | aarch64-linux | ARM Linux (RPi, cloud) |

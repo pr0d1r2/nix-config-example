@@ -1,0 +1,7 @@
+default: 8192
+extensions:
+  lock: 8388608
+  nix: 32768
+  bats: 16384
+  dic: 16384
+  yml: 16384

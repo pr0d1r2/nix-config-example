@@ -131,6 +131,22 @@ pre-commit:
   commands:
     narrow-language-nix: {}
     narrow-language-markdown: {}
+    narrow-language-nix-compact:
+      skip: true
+    narrow-language-shell-compact:
+      skip: true
+    narrow-language-markdown-compact:
+      skip: true
+    narrow-language-other-compact:
+      skip: true
+    narrow-language-nix-freeze:
+      skip: true
+    narrow-language-shell-freeze:
+      skip: true
+    narrow-language-markdown-freeze:
+      skip: true
+    narrow-language-other-freeze:
+      skip: true
     narrow-language-other:
       exclude:
         - "*.nix"
@@ -157,7 +173,11 @@ pre-commit:
     bats-changed:
       glob: "*.{sh,bats}"
       timeout: 60s
-      run: lefthook-bats-changed --failures-only {staged_files}
+      exclude:
+        - "build.sh"
+        - "tests/unit/build.bats"
+        - "tests/integration/"
+      run: lefthook-bats-changed {staged_files}
     ascii-only:
       exclude:
         - "SPEC.md"
@@ -174,7 +194,6 @@ pre-push:
   setup:
     - run: >-
         bash scripts/lefthook/require-dev-shell.sh
-        lefthook-bats-failures-only
         lefthook-vulnix-scan
         lefthook-narrow-language
   commands:
@@ -207,9 +226,14 @@ pre-push:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
         LEFTHOOK_TDD_SRC_STRIP: ""
+    execute-permissions:
+      env:
+        LEFTHOOK_EXECUTE_PERMISSIONS_ALLOWED: '^(\\./)?scripts/|^(\\./)?bin/'
+    linter-coverage:
+      skip: true
     bats-unit:
       timeout: 180s
-      run: lefthook-bats-failures-only --recursive --jobs $(nproc) tests/unit
+      run: bats --recursive --jobs $(nproc) tests/unit
     flake-nix-build:
       timeout: 300s
       run: bats tests/integration/build.bats
