@@ -1,4 +1,5 @@
 aaa
+aarch
 abbrev
 aborted
 acquiring
@@ -456,8 +457,10 @@ tree
 tries
 true
 type
+uname
 unload
 unset
+unsupported
 until
 upstream
 url
