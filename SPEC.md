@@ -21,7 +21,8 @@ one closure, three platforms, zero drift
 - username parameterized in flake.nix (fork and change)
 - hostnames are placeholders — adopter renames to real machines
 - `home/users/developer.nix` is example identity — adopter creates own `{username}.nix`
-- `home/modules/claude-code.nix` ships sane defaults — adopter tunes model, presets, env
+- `home/modules/claude-code.nix` ships sane defaults —
+  adopter tunes model, presets, env
 - claude-code config via nix-home-manager-claude-code module
 - repo ! build & evaluate out of box before any personalization
 - shell formatting: shfmt. nix formatting: nixfmt
@@ -64,7 +65,8 @@ V7: CI green: nix-lefthook-ci-action checks pass → all 3 configs build
 V8: ∀ hook script → executable bit set
 V9: install-hooks.sh ! idempotent (no duplicate lines on re-run)
 V10: git hooks ! honor `LEFTHOOK=0` env var to disable
-V11: Claude Code config deployed after `darwin-rebuild switch` or `nixos-rebuild switch`
+V11: Claude Code config deployed after
+`darwin-rebuild switch` or `nixos-rebuild switch`
 V12: fork workflow: change username+hostname in flake.nix, add user .nix file, done
 V13: repo ! build & evaluate w/ zero changes (example defaults work out of box)
 V14: personalization ! not break existing invariants (V1–V11 hold after fork customization)

@@ -6,12 +6,12 @@ Single flake.nix, same inputs, same modules, three platforms, zero drift.
 
 ## Structure
 
-```
-flake.nix              # Flake entry: darwinConfigurations, nixosConfigurations, devShells
-hosts/darwin/          # nix-darwin system config (macOS ARM)
-hosts/linux/           # NixOS system config (x86_64 + aarch64)
-home/users/            # home-manager per-user modules (default.nix + per-username)
-home/modules/          # home-manager feature modules (claude-code)
+```text
+flake.nix              # Flake entry
+hosts/darwin/          # nix-darwin (macOS ARM)
+hosts/linux/           # NixOS (x86_64 + aarch64)
+home/users/            # home-manager per-user modules
+home/modules/          # home-manager feature modules
 nix/dev/shell.sh       # shellHook for nix develop
 scripts/lefthook/      # Git hook helper scripts
 tests/unit/            # BATS unit tests
@@ -24,14 +24,16 @@ tests/integration/     # Integration build tests
 nix develop            # Enter dev shell (or use direnv via .envrc)
 ```
 
-Dev shell provides all tools: lefthook, bats, deadnix, nixfmt, statix, shellcheck, shfmt, yamllint, typos, hunspell, custom lefthook scripts from remote repos.
+Dev shell provides all tools: lefthook, bats, deadnix,
+nixfmt, statix, shellcheck, shfmt, yamllint, typos,
+hunspell, custom lefthook scripts from remote repos.
 
 Git hooks auto-install by `nix/dev/shell.sh` on shell entry.
 
 ## Machines
 
 | Config | System | Hostname |
-|--------|--------|----------|
+| -------- | -------- | ---------- |
 | `darwinConfigurations.macos-arm` | aarch64-darwin | macos-arm |
 | `nixosConfigurations.linux` | x86_64-linux | linux |
 | `nixosConfigurations.linux-arm` | aarch64-linux | linux-arm |
