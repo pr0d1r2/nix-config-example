@@ -10,7 +10,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@d5d2f8c
+      - uses: pr0d1r2/nix-lefthook-ci-action@d5d2f8c1bb57169f1ee0617356957de707411e76
         with:
           skip-build: "true"
           keep-home: "true"
