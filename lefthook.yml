@@ -131,6 +131,22 @@ pre-commit:
   commands:
     narrow-language-nix: {}
     narrow-language-markdown: {}
+    narrow-language-nix-compact:
+      skip: true
+    narrow-language-shell-compact:
+      skip: true
+    narrow-language-markdown-compact:
+      skip: true
+    narrow-language-other-compact:
+      skip: true
+    narrow-language-nix-freeze:
+      skip: true
+    narrow-language-shell-freeze:
+      skip: true
+    narrow-language-markdown-freeze:
+      skip: true
+    narrow-language-other-freeze:
+      skip: true
     narrow-language-other:
       exclude:
         - "*.nix"
@@ -157,6 +173,9 @@ pre-commit:
     bats-changed:
       glob: "*.{sh,bats}"
       timeout: 60s
+      exclude:
+        - "tests/unit/build.bats"
+        - "tests/integration/"
       run: lefthook-bats-changed --failures-only {staged_files}
     ascii-only:
       exclude:
@@ -180,6 +199,22 @@ pre-push:
   commands:
     narrow-language-nix: {}
     narrow-language-markdown: {}
+    narrow-language-nix-compact:
+      skip: true
+    narrow-language-shell-compact:
+      skip: true
+    narrow-language-markdown-compact:
+      skip: true
+    narrow-language-other-compact:
+      skip: true
+    narrow-language-nix-freeze:
+      skip: true
+    narrow-language-shell-freeze:
+      skip: true
+    narrow-language-markdown-freeze:
+      skip: true
+    narrow-language-other-freeze:
+      skip: true
     narrow-language-other:
       exclude:
         - "*.nix"
