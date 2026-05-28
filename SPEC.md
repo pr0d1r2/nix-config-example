@@ -94,3 +94,6 @@ T16|.|set branch protection on main|V7
 ## §B BUGS
 
 id|date|cause|fix
+B1|2026-05-28|6 wrapper inputs missing|add flake inputs
+B2|2026-05-28|CI bats needs libraries|use bats.withLibraries
+B3|2026-05-28|upstream plain bats bug|use bats directly

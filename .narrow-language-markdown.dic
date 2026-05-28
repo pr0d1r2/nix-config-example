@@ -60,10 +60,12 @@ branch
 branches
 break
 budget
+bug
 bugs
 build
 builds
 built
+bundles
 but
 calling
 can
@@ -387,6 +389,7 @@ namespace
 narrow
 navigable
 need
+needed
 needs
 never
 new
@@ -444,6 +447,7 @@ pinned
 place
 placeholder
 placeholders
+plain
 platform
 platforms
 plugin
@@ -502,6 +506,7 @@ remove
 removed
 renamed
 renames
+replace
 replaces
 repo
 reports
@@ -642,6 +647,7 @@ unknown
 unnecessary
 unstable
 unused
+upstream
 use
 used
 user
@@ -682,6 +688,7 @@ working
 works
 worktree
 wrap
+wrapper
 wrapping
 write
 xargs
