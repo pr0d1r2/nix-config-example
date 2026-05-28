@@ -1,0 +1,215 @@
+remotes:
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-trailing-whitespace
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-git-conflict-markers
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-missing-final-newline
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-deadnix
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-typos
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-nixfmt
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-shellcheck
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-shfmt
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-yamllint
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-tcl-syntax
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-unicode-lint
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-no-shell-functions
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-bats-parse
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-bats-changed
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-taplo
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-statix
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-flake-eval
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-ascii-only
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-vulnix-scan
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-justfile-alphabetical
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-commit-msg-lint
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-editorconfig-checker
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-execute-permissions
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-file-size-check
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-gitleaks
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-markdownlint
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-no-embedded-shell
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-linter-coverage
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-flake-check
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-narrow-language
+    ref: main
+    configs:
+      - lefthook-remote.yml
+  - git_url: https://github.com/pr0d1r2/nix-lefthook-tdd-order-bats
+    ref: main
+    configs:
+      - lefthook-remote.yml
+
+pre-commit:
+  parallel: true
+  setup:
+    - run: bash scripts/lefthook/require-dev-shell.sh
+  commands:
+    narrow-language-nix: {}
+    narrow-language-markdown: {}
+    narrow-language-other:
+      exclude:
+        - "*.nix"
+        - "*.sh"
+        - "*.bats"
+        - "*.py"
+        - "*.rb"
+        - "*.js"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+        - "*.erb"
+        - "*.hcl"
+        - "*.tf"
+        - "*.css"
+        - "*.scss"
+        - "*.md"
+        - "*.dic"
+        - "flake.lock"
+    tdd-order-bats:
+      env:
+        LEFTHOOK_TDD_SPEC_DIR: tests/unit
+        LEFTHOOK_TDD_SRC_STRIP: ""
+    bats-changed:
+      glob: "*.{sh,bats}"
+      timeout: 60s
+      run: lefthook-bats-changed --failures-only {staged_files}
+    ascii-only:
+      exclude:
+        - "SPEC.md"
+        - "flake.lock"
+    nix-flake-eval:
+      env:
+        LEFTHOOK_NIX_FLAKE_EVAL_ATTR: ".#darwinConfigurations.macos-arm.system"
+    execute-permissions:
+      env:
+        LEFTHOOK_EXECUTE_PERMISSIONS_ALLOWED: '^(\\./)?scripts/|^(\\./)?bin/'
+
+pre-push:
+  parallel: true
+  setup:
+    - run: >-
+        bash scripts/lefthook/require-dev-shell.sh
+        lefthook-bats-failures-only
+        lefthook-vulnix-scan
+        lefthook-narrow-language
+  commands:
+    narrow-language-nix: {}
+    narrow-language-markdown: {}
+    narrow-language-other:
+      exclude:
+        - "*.nix"
+        - "*.sh"
+        - "*.bats"
+        - "*.py"
+        - "*.rb"
+        - "*.js"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+        - "*.erb"
+        - "*.hcl"
+        - "*.tf"
+        - "*.css"
+        - "*.scss"
+        - "*.md"
+        - "*.dic"
+        - "flake.lock"
+    ascii-only:
+      exclude:
+        - "SPEC.md"
+        - "flake.lock"
+    tdd-order-bats:
+      env:
+        LEFTHOOK_TDD_SPEC_DIR: tests/unit
+        LEFTHOOK_TDD_SRC_STRIP: ""
+    bats-unit:
+      timeout: 180s
+      run: lefthook-bats-failures-only --recursive --jobs $(nproc) tests/unit
+    flake-nix-build:
+      timeout: 300s
+      run: bats tests/integration/build.bats

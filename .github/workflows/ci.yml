@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pr0d1r2/nix-lefthook-ci-action@d5d2f8c
+        with:
+          skip-build: "true"
+          keep-home: "true"
+
+  build-darwin:
+    needs: check
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build darwin config (aarch64)
+        run: nix build .#darwinConfigurations.macos-arm.system -L
+
+  build-linux:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Build linux config (x86_64)
+        run: nix build .#nixosConfigurations.linux.config.system.build.toplevel -L
+
+  build-linux-arm:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: extra-platforms = aarch64-linux
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+
+      - name: Set up QEMU for aarch64
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -yq qemu-user-static binfmt-support
+          sudo update-binfmts --enable qemu-aarch64
+
+      - name: Build linux-arm config (aarch64 via QEMU)
+        run: nix build .#nixosConfigurations.linux-arm.config.system.build.toplevel -L
