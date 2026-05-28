@@ -25,6 +25,7 @@ assert
 associated
 async
 attr
+auth
 authors
 available
 backport
@@ -48,6 +49,7 @@ but
 bytes
 cabal
 cache
+cachix
 call
 cascades
 causes
@@ -413,6 +415,7 @@ safe
 scan
 script
 scripts
+secrets
 sell
 semver
 server
@@ -470,6 +473,7 @@ the
 this
 time
 timeout
+token
 toml
 toplevel
 tort

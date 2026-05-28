@@ -7,45 +7,44 @@ on:
     branches: [main]
 
 jobs:
-  check:
+  build-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@370146001466273661fd8f8913ededc80f590b09
         with:
           skip-build: "true"
           keep-home: "true"
-
-  build-darwin:
-    needs: check
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
-
-      - name: Build darwin config (aarch64)
-        run: nix build .#darwinConfigurations.macos-arm.system -L
-
-  build-linux:
-    needs: check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+          extra-env: "LEFTHOOK_EXCLUDE=flake-nix-build"
+          cachix-cache: pr0d1r2
+          cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Build linux config (x86_64)
         run: nix build .#nixosConfigurations.linux.config.system.build.toplevel -L
 
+  build-darwin:
+    needs: build-linux
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/cachix-action@v15
+        with:
+          name: pr0d1r2
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+
+      - name: Build darwin config (aarch64)
+        run: nix build .#darwinConfigurations.macos-arm.system -L
+
   build-linux-arm:
-    needs: check
+    needs: build-linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
+      - uses: cachix/cachix-action@v15
         with:
-          extra-conf: extra-platforms = aarch64-linux
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+          name: pr0d1r2
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Set up QEMU for aarch64
         run: |
