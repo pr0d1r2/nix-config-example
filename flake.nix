@@ -81,6 +81,30 @@
       url = "github:pr0d1r2/nix-lefthook-statix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-lefthook-deadnix = {
+      url = "github:pr0d1r2/nix-lefthook-deadnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-lefthook-nixfmt = {
+      url = "github:pr0d1r2/nix-lefthook-nixfmt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-lefthook-typos = {
+      url = "github:pr0d1r2/nix-lefthook-typos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-lefthook-shellcheck = {
+      url = "github:pr0d1r2/nix-lefthook-shellcheck";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-lefthook-shfmt = {
+      url = "github:pr0d1r2/nix-lefthook-shfmt";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-lefthook-yamllint = {
+      url = "github:pr0d1r2/nix-lefthook-yamllint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-lefthook-nix-flake-eval = {
       url = "github:pr0d1r2/nix-lefthook-nix-flake-eval";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -163,6 +187,12 @@
       home-manager,
       claude-code-nix,
       nix-home-manager-claude-code,
+      nix-lefthook-deadnix,
+      nix-lefthook-nixfmt,
+      nix-lefthook-typos,
+      nix-lefthook-shellcheck,
+      nix-lefthook-shfmt,
+      nix-lefthook-yamllint,
       nix-lefthook-nix-flake-eval,
       nix-lefthook-ascii-only,
       nix-lefthook-trailing-whitespace,
@@ -320,18 +350,21 @@
         pkgs:
         let
           sys = pkgs.stdenv.hostPlatform.system;
-          batsLibs = pkgs.symlinkJoin {
-            name = "bats-libs";
-            paths = with pkgs.bats.libraries; [
-              bats-support
-              bats-assert
-              bats-file
-            ];
-          };
+          batsWithLibs = pkgs.bats.withLibraries (p: [
+            p.bats-support
+            p.bats-assert
+            p.bats-file
+          ]);
         in
         {
           default = pkgs.mkShell {
             packages = [
+              nix-lefthook-deadnix.packages.${sys}.default
+              nix-lefthook-nixfmt.packages.${sys}.default
+              nix-lefthook-typos.packages.${sys}.default
+              nix-lefthook-shellcheck.packages.${sys}.default
+              nix-lefthook-shfmt.packages.${sys}.default
+              nix-lefthook-yamllint.packages.${sys}.default
               nix-lefthook-nix-flake-eval.packages.${sys}.default
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
@@ -359,11 +392,10 @@
               nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
             ]
+            ++ [
+              batsWithLibs
+            ]
             ++ (with pkgs; [
-              bats
-              bats.libraries.bats-assert
-              bats.libraries.bats-file
-              bats.libraries.bats-support
               parallel
               coreutils
               deadnix
@@ -388,12 +420,17 @@
               wordnet
               yamllint
             ]);
-            BATS_LIB_PATH = "${batsLibs}/share/bats";
             shellHook = builtins.readFile ./nix/dev/shell.sh;
           };
 
           ci = pkgs.mkShell {
             packages = [
+              nix-lefthook-deadnix.packages.${sys}.default
+              nix-lefthook-nixfmt.packages.${sys}.default
+              nix-lefthook-typos.packages.${sys}.default
+              nix-lefthook-shellcheck.packages.${sys}.default
+              nix-lefthook-shfmt.packages.${sys}.default
+              nix-lefthook-yamllint.packages.${sys}.default
               nix-lefthook-nix-flake-eval.packages.${sys}.default
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
@@ -421,11 +458,10 @@
               nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
             ]
+            ++ [
+              batsWithLibs
+            ]
             ++ (with pkgs; [
-              bats
-              bats.libraries.bats-assert
-              bats.libraries.bats-file
-              bats.libraries.bats-support
               parallel
               coreutils
               deadnix
@@ -450,7 +486,6 @@
               wordnet
               yamllint
             ]);
-            BATS_LIB_PATH = "${batsLibs}/share/bats";
           };
         }
       );
