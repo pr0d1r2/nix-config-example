@@ -39,18 +39,20 @@ jobs:
     needs: build-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: cachix/cachix-action@v15
-        with:
-          name: pr0d1r2
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
       - name: Set up QEMU for aarch64
         run: |
           sudo apt-get update -q
           sudo apt-get install -yq qemu-user-static binfmt-support
           sudo update-binfmts --enable qemu-aarch64
+
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: extra-platforms = aarch64-linux
+      - uses: cachix/cachix-action@v15
+        with:
+          name: pr0d1r2
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
       - name: Build linux-arm config (aarch64 via QEMU)
         run: nix build .#nixosConfigurations.linux-arm.config.system.build.toplevel -L
