@@ -38,16 +38,19 @@ bashrc
 bat
 bats
 bin
+bind
 bindings
 binfmt
 binfmts
 binlore
+binutils
 boost
 bootstrap
 branches
 brussee
 build
 bumping
+busybox
 but
 bytes
 cabal
@@ -112,6 +115,7 @@ damages
 darwin
 dash
 data
+dbus
 deadnix
 deal
 dealings
@@ -270,8 +274,11 @@ lefthook
 length
 liability
 liable
+libgcrypt
+libmicrohttpd
 library
 libssh
+libtpms
 libxml
 libyaml
 license
@@ -316,6 +323,7 @@ modify
 module
 modules
 name
+nano
 narrow
 native
 needs
@@ -484,6 +492,7 @@ switch
 syntax
 system
 systemctl
+systemd
 systems
 taplo
 tar
@@ -511,6 +520,7 @@ type
 typos
 ubuntu
 unblock
+unbound
 unicode
 unit
 unrelated
@@ -553,6 +563,7 @@ wrong
 xargs
 yaml
 yamllint
+yasm
 yoke
 zlib
 zshdir
