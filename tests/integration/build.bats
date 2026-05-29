@@ -10,41 +10,27 @@ setup_file() {
 
     local nix_system
     nix_system=$($NIX eval --raw --impure --expr builtins.currentSystem)
+    export NIX_SYSTEM="$nix_system"
 
-    case "$nix_system" in
-        aarch64-darwin)
-            export BUILD_CONFIG=".#darwinConfigurations.macos-arm"
-            export HM_USER="developer"
-            export RESULT_LINK="$REPO_ROOT/result-darwin"
-            $NIX build "${BUILD_CONFIG}.system" --out-link "$RESULT_LINK"
-            ;;
-        x86_64-linux)
-            export BUILD_CONFIG=".#nixosConfigurations.linux"
-            export HM_USER="developer"
-            export RESULT_LINK="$REPO_ROOT/result-linux"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$RESULT_LINK"
-            ;;
-        aarch64-linux)
-            export BUILD_CONFIG=".#nixosConfigurations.linux-arm"
-            export HM_USER="developer"
-            export RESULT_LINK="$REPO_ROOT/result-linux-arm"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$RESULT_LINK"
-            ;;
-        *)
-            skip "unsupported platform: $nix_system"
-            ;;
-    esac
+    $NIX build --out-link "$REPO_ROOT/result"
 }
 
 setup() {
     bats_load_library bats-support
     bats_load_library bats-assert
     REPO_ROOT="$(cd "$BATS_TEST_DIRNAME/../.." && pwd)"
-    HM_PREFIX="${BUILD_CONFIG}.config.home-manager.users.${HM_USER}"
+
+    local hm_config
+    case "$NIX_SYSTEM" in
+        aarch64-darwin) hm_config=".#darwinConfigurations.macos-arm" ;;
+        x86_64-linux) hm_config=".#nixosConfigurations.linux" ;;
+        aarch64-linux) hm_config=".#nixosConfigurations.linux-arm" ;;
+    esac
+    HM_PREFIX="${hm_config}.config.home-manager.users.developer"
 }
 
 @test "system derivation builds successfully" {
-    [ -L "$RESULT_LINK" ]
+    [ -L "$REPO_ROOT/result" ]
 }
 
 @test "claude-code package resolves" {

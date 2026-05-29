@@ -45,12 +45,15 @@ bootstrap
 branches
 brussee
 build
+bumping
 but
 bytes
 cabal
 cache
 cachix
 call
+cannot
+cargo
 cascades
 causes
 changed
@@ -112,6 +115,7 @@ default
 defined
 delta
 dep
+dependencies
 deps
 desc
 description
@@ -261,6 +265,7 @@ liability
 liable
 library
 libssh
+libxml
 libyaml
 license
 limitation
@@ -280,6 +285,7 @@ lua
 macos
 magic
 main
+maintainers
 managed
 manager
 marcin
@@ -313,6 +319,7 @@ ninja
 nix
 nixfmt
 nixos
+nixpkgs
 node
 noninfringement
 not
@@ -342,9 +349,11 @@ parse
 particular
 pass
 passed
+patch
 path
 pattern
 patterns
+periodically
 perl
 permission
 permissions
@@ -395,6 +404,7 @@ relevant
 remote
 remotes
 repeat
+repo
 request
 require
 resolved
@@ -404,6 +414,7 @@ restriction
 result
 results
 return
+review
 rights
 root
 ruby
@@ -475,6 +486,7 @@ test
 tests
 that
 the
+these
 this
 time
 timeout
@@ -482,13 +494,16 @@ token
 toml
 toplevel
 tort
+tracked
 trailing
+transitive
 tree
 trim
 true
 type
 typos
 ubuntu
+unblock
 unicode
 unit
 unrelated
@@ -517,6 +532,7 @@ warranties
 warranty
 watch
 wheel
+when
 whether
 which
 whitelist

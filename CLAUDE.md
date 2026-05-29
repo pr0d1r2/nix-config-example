@@ -41,7 +41,8 @@ Git hooks auto-install by `nix/dev/shell.sh` on shell entry.
 ## Build & apply
 
 ```bash
-bash build.sh                        # Build darwin config (result-darwin symlink)
+nix build                            # Build current platform's config
+bash build.sh                        # Same, via wrapper script
 darwin-rebuild switch --flake .       # Apply darwin config
 sudo nixos-rebuild switch --flake .   # Apply NixOS config
 ```
