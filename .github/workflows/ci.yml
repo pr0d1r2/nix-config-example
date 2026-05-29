@@ -10,9 +10,8 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@370146001466273661fd8f8913ededc80f590b09
+      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
         with:
-
           keep-home: "true"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
@@ -20,9 +19,8 @@ jobs:
     needs: build-linux
     runs-on: macos-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@370146001466273661fd8f8913ededc80f590b09
+      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
         with:
-
           keep-home: "true"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
@@ -30,17 +28,8 @@ jobs:
     needs: build-linux
     runs-on: ubuntu-latest
     steps:
-      - name: Set up QEMU for aarch64
-        run: |
-          sudo apt-get update -q
-          sudo apt-get install -yq qemu-user-static binfmt-support
-          sudo update-binfmts --enable qemu-aarch64
-
-      - uses: pr0d1r2/nix-lefthook-ci-action@370146001466273661fd8f8913ededc80f590b09
+      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
         with:
-
+          extra-platforms: aarch64-linux
           keep-home: "true"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          pre-build-commands: |
-            echo "extra-platforms = aarch64-linux" | sudo tee -a /etc/nix/nix.conf
-            sudo systemctl restart nix-daemon
