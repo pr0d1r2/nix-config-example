@@ -176,6 +176,10 @@
       url = "github:pr0d1r2/nix-lefthook-tdd-order-bats";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-lefthook-actionlint = {
+      url = "github:pr0d1r2/nix-lefthook-actionlint";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -220,6 +224,7 @@
       nix-lefthook-nix-flake-check,
       nix-lefthook-narrow-language,
       nix-lefthook-tdd-order-bats,
+      nix-lefthook-actionlint,
       ...
     }:
     let
@@ -402,11 +407,13 @@
               nix-lefthook-nix-flake-check.packages.${sys}.default
               nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
+              nix-lefthook-actionlint.packages.${sys}.default
             ]
             ++ [
               batsWithLibs
             ]
             ++ (with pkgs; [
+              actionlint
               parallel
               coreutils
               deadnix
@@ -468,11 +475,13 @@
               nix-lefthook-nix-flake-check.packages.${sys}.default
               nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
+              nix-lefthook-actionlint.packages.${sys}.default
             ]
             ++ [
               batsWithLibs
             ]
             ++ (with pkgs; [
+              actionlint
               parallel
               coreutils
               deadnix
