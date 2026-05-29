@@ -180,6 +180,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-darwin,
       nixpkgs-unstable,
@@ -345,6 +346,16 @@
         hostname = "linux-arm";
         username = "developer";
       };
+
+      packages = forAllSystems (pkgs: {
+        default =
+          {
+            "aarch64-darwin" = self.darwinConfigurations."macos-arm".system;
+            "x86_64-linux" = self.nixosConfigurations."linux".config.system.build.toplevel;
+            "aarch64-linux" = self.nixosConfigurations."linux-arm".config.system.build.toplevel;
+          }
+          .${pkgs.stdenv.hostPlatform.system};
+      });
 
       devShells = forAllSystems (
         pkgs:

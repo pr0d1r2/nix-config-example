@@ -8,41 +8,29 @@ setup_file() {
 
     export NIX="nix --extra-experimental-features nix-command --extra-experimental-features flakes"
 
-    case "$(uname -s)-$(uname -m)" in
-        Darwin-arm64)
-            export BUILD_CONFIG=".#darwinConfigurations.macos-arm"
-            export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.system" --out-link "$REPO_ROOT/result-darwin"
-            ;;
-        Linux-x86_64)
-            export BUILD_CONFIG=".#nixosConfigurations.linux"
-            export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$REPO_ROOT/result-linux"
-            ;;
-        Linux-aarch64)
-            export BUILD_CONFIG=".#nixosConfigurations.linux-arm"
-            export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$REPO_ROOT/result-linux-arm"
-            ;;
-        *)
-            skip "unsupported platform: $(uname -s)-$(uname -m)"
-            ;;
-    esac
+    local nix_system
+    nix_system=$($NIX eval --raw --impure --expr builtins.currentSystem)
+    export NIX_SYSTEM="$nix_system"
+
+    $NIX build --out-link "$REPO_ROOT/result"
 }
 
 setup() {
     bats_load_library bats-support
     bats_load_library bats-assert
     REPO_ROOT="$(cd "$BATS_TEST_DIRNAME/../.." && pwd)"
-    HM_PREFIX="${BUILD_CONFIG}.config.home-manager.users.${HM_USER}"
+
+    local hm_config
+    case "$NIX_SYSTEM" in
+        aarch64-darwin) hm_config=".#darwinConfigurations.macos-arm" ;;
+        x86_64-linux) hm_config=".#nixosConfigurations.linux" ;;
+        aarch64-linux) hm_config=".#nixosConfigurations.linux-arm" ;;
+    esac
+    HM_PREFIX="${hm_config}.config.home-manager.users.developer"
 }
 
 @test "system derivation builds successfully" {
-    case "$(uname -s)-$(uname -m)" in
-        Darwin-arm64) [ -L "$REPO_ROOT/result-darwin" ] ;;
-        Linux-x86_64) [ -L "$REPO_ROOT/result-linux" ] ;;
-        Linux-aarch64) [ -L "$REPO_ROOT/result-linux-arm" ] ;;
-    esac
+    [ -L "$REPO_ROOT/result" ]
 }
 
 @test "claude-code package resolves" {

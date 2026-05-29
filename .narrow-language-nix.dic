@@ -322,6 +322,7 @@ sadjow
 scan
 script
 security
+self
 server
 services
 session
@@ -370,6 +371,7 @@ then
 thinking
 token
 toml
+toplevel
 touch
 tracker
 trailing
