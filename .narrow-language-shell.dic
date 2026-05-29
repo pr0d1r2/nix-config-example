@@ -45,6 +45,7 @@ branch
 brussee
 build
 builds
+builtins
 bundler
 but
 cache
@@ -160,6 +161,7 @@ exits
 experimental
 export
 exports
+expr
 extra
 failure
 fake
@@ -206,6 +208,7 @@ hosts
 idempotent
 ifs
 ignores
+impure
 includes
 independent
 index

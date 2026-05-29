@@ -8,24 +8,30 @@ setup_file() {
 
     export NIX="nix --extra-experimental-features nix-command --extra-experimental-features flakes"
 
-    case "$(uname -s)-$(uname -m)" in
-        Darwin-arm64)
+    local nix_system
+    nix_system=$($NIX eval --raw --impure --expr builtins.currentSystem)
+
+    case "$nix_system" in
+        aarch64-darwin)
             export BUILD_CONFIG=".#darwinConfigurations.macos-arm"
             export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.system" --out-link "$REPO_ROOT/result-darwin"
+            export RESULT_LINK="$REPO_ROOT/result-darwin"
+            $NIX build "${BUILD_CONFIG}.system" --out-link "$RESULT_LINK"
             ;;
-        Linux-x86_64)
+        x86_64-linux)
             export BUILD_CONFIG=".#nixosConfigurations.linux"
             export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$REPO_ROOT/result-linux"
+            export RESULT_LINK="$REPO_ROOT/result-linux"
+            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$RESULT_LINK"
             ;;
-        Linux-aarch64)
+        aarch64-linux)
             export BUILD_CONFIG=".#nixosConfigurations.linux-arm"
             export HM_USER="developer"
-            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$REPO_ROOT/result-linux-arm"
+            export RESULT_LINK="$REPO_ROOT/result-linux-arm"
+            $NIX build "${BUILD_CONFIG}.config.system.build.toplevel" --out-link "$RESULT_LINK"
             ;;
         *)
-            skip "unsupported platform: $(uname -s)-$(uname -m)"
+            skip "unsupported platform: $nix_system"
             ;;
     esac
 }
@@ -38,11 +44,7 @@ setup() {
 }
 
 @test "system derivation builds successfully" {
-    case "$(uname -s)-$(uname -m)" in
-        Darwin-arm64) [ -L "$REPO_ROOT/result-darwin" ] ;;
-        Linux-x86_64) [ -L "$REPO_ROOT/result-linux" ] ;;
-        Linux-aarch64) [ -L "$REPO_ROOT/result-linux-arm" ] ;;
-    esac
+    [ -L "$RESULT_LINK" ]
 }
 
 @test "claude-code package resolves" {

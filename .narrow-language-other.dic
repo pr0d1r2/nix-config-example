@@ -99,6 +99,7 @@ cross
 curl
 cve
 cves
+daemon
 dag
 damages
 darwin
@@ -129,6 +130,7 @@ document
 documentation
 don
 drupal
+echo
 ededc
 editorconfig
 else
@@ -397,6 +399,7 @@ request
 require
 resolved
 response
+restart
 restriction
 result
 results
@@ -462,10 +465,12 @@ supports
 switch
 syntax
 system
+systemctl
 systems
 taplo
 tar
 task
+tee
 test
 tests
 that
