@@ -10,26 +10,29 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
+      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
         with:
           keep-home: "true"
+          flake-eval-timeout: "120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   build-darwin:
     needs: build-linux
     runs-on: macos-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
+      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
         with:
           keep-home: "true"
+          flake-eval-timeout: "120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   build-linux-arm:
     needs: build-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
+      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
         with:
           extra-platforms: aarch64-linux
           keep-home: "true"
+          flake-eval-timeout: "120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
