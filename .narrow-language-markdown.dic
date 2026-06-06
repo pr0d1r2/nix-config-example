@@ -30,6 +30,7 @@ and
 anti
 any
 apple
+appliance
 apply
 architectures
 are
@@ -48,6 +49,8 @@ before
 beginning
 behave
 behavior
+benchmark
+big
 bin
 bindings
 bit
@@ -63,12 +66,14 @@ budget
 bug
 bugs
 build
+builder
 builds
 built
 bundles
 but
 calling
 can
+cannot
 case
 cause
 change
@@ -83,6 +88,7 @@ clean
 cli
 close
 closure
+closures
 cloud
 code
 collision
@@ -138,6 +144,7 @@ delta
 depend
 dependent
 deployed
+derivations
 dev
 develop
 developer
@@ -151,6 +158,7 @@ different
 directly
 direnv
 disable
+distributed
 documentation
 does
 done
@@ -203,6 +211,7 @@ extensions
 extra
 extract
 extracted
+factor
 fadi
 fails
 failures
@@ -210,6 +219,7 @@ fall
 fallback
 fast
 feature
+features
 fetch
 fewer
 file
@@ -307,12 +317,14 @@ interfaces
 invariants
 investigating
 invocations
+iso
 issues
 iterating
 iteration
 its
 javascript
 job
+jobs
 json
 just
 justfile
@@ -320,6 +332,7 @@ keep
 keeps
 keys
 lacks
+lan
 language
 languages
 late
@@ -360,8 +373,10 @@ manual
 markdown
 markdownlint
 markers
+match
 matches
 matters
+max
 maximum
 merge
 messages
@@ -387,6 +402,7 @@ must
 name
 namespace
 narrow
+natively
 navigable
 need
 needed
@@ -412,6 +428,7 @@ only
 opensourcing
 operations
 opposite
+optional
 order
 ordered
 org
@@ -484,6 +501,7 @@ rather
 reading
 readlink
 readme
+ready
 real
 realize
 rebuild
@@ -563,6 +581,7 @@ source
 spec
 specific
 specs
+speed
 spell
 spinner
 staged
@@ -588,6 +607,7 @@ suggest
 suite
 supersede
 support
+supported
 supports
 suppose
 surfaces
@@ -596,6 +616,7 @@ symlink
 synonym
 syntax
 system
+systems
 take
 taplo
 task
@@ -631,6 +652,7 @@ tracked
 tracking
 trailing
 tree
+true
 tune
 tunes
 type

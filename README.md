@@ -63,6 +63,29 @@ just eval-all        # Evaluate all configs
 
 See [CLAUDE.md](CLAUDE.md) for full documentation.
 
+## Remote builder (optional)
+
+macOS cannot build x86_64-linux derivations natively. A remote
+NixOS builder on your LAN enables NixOS VM tests, ISO builds,
+and cross-platform closures from your Mac.
+
+Add to your darwin configuration:
+
+```nix
+nix.buildMachines = [{
+  hostName = "nix-builder.local";
+  systems = [ "x86_64-linux" ];
+  maxJobs = 16;
+  speedFactor = 10;
+  supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+}];
+nix.distributedBuilds = true;
+```
+
+Adjust `hostName`, `maxJobs`, and `systems` to match your builder.
+See [nixos-nix-builder](https://github.com/pr0d1r2/nixos-nix-builder)
+for a ready-to-use NixOS builder appliance.
+
 ## License
 
 MIT
