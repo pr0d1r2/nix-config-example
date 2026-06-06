@@ -13,8 +13,6 @@ jobs:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           keep-home: "true"
-          flake-check-timeout: "120"
-          flake-eval-timeout: "120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   build-darwin:
@@ -36,6 +34,4 @@ jobs:
         with:
           extra-platforms: aarch64-linux
           keep-home: "true"
-          flake-check-timeout: "120"
-          flake-eval-timeout: "120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
