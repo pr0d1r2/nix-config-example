@@ -10,7 +10,7 @@ jobs:
   build-linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
+      - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           keep-home: "true"
           flake-eval-timeout: "120"
@@ -20,7 +20,7 @@ jobs:
     needs: build-linux
     runs-on: macos-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
+      - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           keep-home: "true"
           flake-eval-timeout: "120"
@@ -30,7 +30,7 @@ jobs:
     needs: build-linux
     runs-on: ubuntu-latest
     steps:
-      - uses: pr0d1r2/nix-lefthook-ci-action@ff5b297915539ba6d4adc0b0eae60552aa82d29d
+      - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           extra-platforms: aarch64-linux
           keep-home: "true"

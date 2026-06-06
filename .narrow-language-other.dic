@@ -8,7 +8,6 @@ actions
 activate
 activation
 ada
-adc
 add
 agent
 alias
@@ -111,6 +110,7 @@ cross
 curl
 cve
 cves
+dab
 daemon
 dag
 damages
@@ -145,7 +145,6 @@ documentation
 don
 drupal
 echo
-eae
 ededc
 editorconfig
 else
