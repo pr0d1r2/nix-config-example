@@ -22,6 +22,7 @@ jobs:
       - uses: pr0d1r2/nix-lefthook-ci-action@fbeb9d9cfe38488df1ccfbe220179aa9390fb074
         with:
           keep-home: "true"
+          extra-env: "LEFTHOOK_NIX_FLAKE_EVAL_TIMEOUT=120"
           cachix-auth-token: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
   build-linux-arm:
