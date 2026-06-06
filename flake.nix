@@ -180,6 +180,10 @@
       url = "github:pr0d1r2/nix-lefthook-actionlint";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-lefthook = {
+      url = "github:pr0d1r2/nix-lefthook";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -225,6 +229,7 @@
       nix-lefthook-narrow-language,
       nix-lefthook-tdd-order-bats,
       nix-lefthook-actionlint,
+      nix-lefthook,
       ...
     }:
     let
@@ -268,9 +273,9 @@
         "aarch64-linux"
       ];
       overlays = [
+        nix-lefthook.overlays.default
         (_: prev: {
           direnv = prev.direnv.overrideAttrs { doCheck = false; };
-          lefthook = import ./nix/lefthook.nix { pkgs = prev; };
           inherit (nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system}) vulnix;
         })
       ];
