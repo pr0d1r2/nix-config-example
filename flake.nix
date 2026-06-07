@@ -2,7 +2,8 @@
   description = "Cross-platform dev environment example - macOS (nix-darwin) & Linux (NixOS)";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-lock.url = "github:pr0d1r2/nixpkgs-lock";
+    nixpkgs.follows = "nixpkgs-lock/nixpkgs";
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
