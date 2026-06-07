@@ -27,7 +27,9 @@ associated
 async
 attr
 auth
+author
 authors
+auto
 available
 backport
 base
@@ -45,6 +47,7 @@ binlore
 binutils
 boost
 bootstrap
+branch
 branches
 brussee
 build
@@ -65,6 +68,7 @@ charge
 charset
 check
 checker
+chore
 checkout
 claim
 claude
@@ -80,6 +84,7 @@ com
 command
 commands
 commit
+committer
 commonmark
 commti
 compact
@@ -95,6 +100,7 @@ conflict
 connection
 contains
 content
+contents
 contract
 copies
 copy
@@ -102,6 +108,8 @@ copyright
 core
 coverage
 crate
+create
+cron
 cross
 curl
 cve
@@ -118,6 +126,8 @@ deal
 dealings
 default
 defined
+delete
+dispatch
 delta
 dep
 dependencies
@@ -157,6 +167,7 @@ escape
 etc
 eval
 evaluate
+evans
 event
 example
 exclude
@@ -260,6 +271,7 @@ keep
 kill
 kind
 known
+labels
 language
 lapack
 lappend
@@ -308,6 +320,7 @@ may
 memory
 merchantability
 mercurial
+message
 merge
 meta
 misattributed
@@ -369,6 +382,8 @@ permissions
 permit
 persistent
 person
+peter
+pin
 personal
 persons
 pip
@@ -415,6 +430,7 @@ remotes
 repeat
 repo
 request
+requests
 require
 resolved
 response
@@ -436,6 +452,7 @@ runtime
 rust
 safe
 scan
+schedule
 script
 scripts
 secrets
@@ -500,6 +517,7 @@ these
 this
 time
 timeout
+title
 token
 toml
 toplevel
@@ -551,6 +569,8 @@ whitespace
 whom
 with
 without
+workflow
+write
 wordnet
 words
 wrong
