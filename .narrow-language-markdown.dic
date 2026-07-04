@@ -129,6 +129,7 @@ cross
 current
 custom
 customization
+cves
 darwin
 data
 date
@@ -426,6 +427,7 @@ numerically
 one
 only
 opensourcing
+openssl
 operations
 opposite
 optional
@@ -573,6 +575,7 @@ skeptic
 skill
 skills
 skip
+socat
 solutions
 some
 something
@@ -670,6 +673,7 @@ unknown
 unnecessary
 unstable
 unused
+unwhitelisted
 upstream
 use
 used
