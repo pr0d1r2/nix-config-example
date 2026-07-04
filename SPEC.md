@@ -97,3 +97,4 @@ id|date|cause|fix
 B1|2026-05-28|6 wrapper inputs missing|add flake inputs
 B2|2026-05-28|CI bats needs libraries|use bats.withLibraries
 B3|2026-05-28|upstream plain bats bug|use bats directly
+B4|2026-07-04|narrow-language-add command missing|skip *-add

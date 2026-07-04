@@ -138,6 +138,14 @@ pre-commit:
   commands:
     narrow-language-nix: {}
     narrow-language-markdown: {}
+    narrow-language-nix-add:
+      skip: true
+    narrow-language-shell-add:
+      skip: true
+    narrow-language-markdown-add:
+      skip: true
+    narrow-language-other-add:
+      skip: true
     narrow-language-nix-compact:
       skip: true
     narrow-language-shell-compact:
