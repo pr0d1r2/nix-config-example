@@ -17,6 +17,7 @@ adjusts
 adopter
 after
 agent
+agentic
 aliases
 all
 allocate
@@ -60,6 +61,7 @@ both
 box
 bracing
 branch
+broke
 branches
 break
 budget
@@ -129,6 +131,7 @@ cross
 current
 custom
 customization
+cves
 darwin
 data
 date
@@ -150,6 +153,7 @@ develop
 developer
 development
 dic
+dics
 dict
 dictionaries
 dictionary
@@ -227,6 +231,7 @@ files
 final
 find
 findutils
+fixes
 first
 fix
 flag
@@ -340,6 +345,7 @@ layout
 learn
 left
 lefthook
+length
 level
 lexical
 lib
@@ -426,6 +432,7 @@ numerically
 one
 only
 opensourcing
+openssl
 operations
 opposite
 optional
@@ -460,6 +467,7 @@ personal
 personalization
 personalize
 picking
+pin
 pinned
 place
 placeholder
@@ -563,6 +571,7 @@ shellcheck
 shells
 ship
 ships
+shorten
 shot
 should
 signal
@@ -572,6 +581,8 @@ single
 skeptic
 skill
 skills
+skip
+socat
 solutions
 some
 something
@@ -669,6 +680,8 @@ unknown
 unnecessary
 unstable
 unused
+update
+unwhitelisted
 upstream
 use
 used
