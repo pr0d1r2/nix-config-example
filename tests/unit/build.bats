@@ -33,3 +33,11 @@ setup() {
     run $NIX eval ".#nixosConfigurations.linux-arm.config.system.build.toplevel" --json
     assert_success
 }
+
+@test "shell scripts pass shfmt -i 2 -ci" {
+    command -v shfmt >/dev/null 2>&1 || skip "shfmt not available"
+    cd "$REPO_ROOT"
+    run bash -c 'shfmt -d -i 2 -ci $(git ls-files "*.sh")'
+    assert_success
+    assert_output ""
+}

@@ -185,6 +185,11 @@ pre-commit:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
         LEFTHOOK_TDD_SRC_STRIP: ""
+    shfmt:
+      skip: true
+    shfmt-i2:
+      glob: "*.sh"
+      run: timeout 30 shfmt -d -i 2 -ci {staged_files}
     bats-changed:
       glob: "*.{sh,bats}"
       timeout: 60s
@@ -241,6 +246,11 @@ pre-push:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
         LEFTHOOK_TDD_SRC_STRIP: ""
+    shfmt:
+      skip: true
+    shfmt-i2:
+      glob: "*.sh"
+      run: timeout 30 shfmt -d -i 2 -ci {push_files}
     execute-permissions:
       env:
         LEFTHOOK_EXECUTE_PERMISSIONS_ALLOWED: '^(\\./)?scripts/|^(\\./)?bin/'
