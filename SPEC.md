@@ -106,3 +106,4 @@ B9|2026-07-25|pin update broke flake: nix-lefthook dropped overlays output, upst
 B10|2026-07-25|nix-lefthook-narrow-language upstream removed packages.default, only exposes packages.setting|reference .setting instead of .default in devShells
 B11|2026-07-25|B10 fix insufficient: .setting is a config syncer (sync-setting), not the tool binaries; lefthook-narrow-language/freeze still missing|extract tool packages from upstream devShells.default.nativeBuildInputs instead of using .setting
 B12|2026-07-25|shell/bats files use 4-space indent but .editorconfig sets indent_size=2; shfmt reads editorconfig and fails|reformat all .sh and .bats files to 2-space indent via shfmt -w
+B13|2026-07-25|CI cachix push 403 on PRs: auth token passed unconditionally causes push attempts that fail on pull_request events|gate cachix-auth-token with github.event_name == 'push' so PRs use read-only cache
