@@ -76,6 +76,7 @@ builds
 built
 bundles
 but
+bytes
 cache
 cachix
 calling
@@ -284,6 +285,8 @@ github
 gitignore
 gitkeep
 give
+glib
+gzip
 gnu
 gnugrep
 gnused
@@ -313,6 +316,7 @@ hunspell
 hybrid
 idempotent
 identically
+idna
 identifiers
 identity
 ignore
@@ -334,6 +338,7 @@ insufficient
 integer
 integration
 intended
+introduced
 interfaces
 invariants
 investigating
@@ -478,6 +483,7 @@ passed
 passes
 password
 paste
+patch
 path
 paths
 pattern
@@ -714,6 +720,7 @@ unnecessary
 unstable
 unused
 unwhitelisted
+util
 update
 upstream
 use
