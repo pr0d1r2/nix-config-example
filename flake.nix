@@ -359,6 +359,9 @@
             p.bats-assert
             p.bats-file
           ]);
+          narrowLanguageTools = builtins.filter (
+            p: builtins.match "lefthook-narrow-language.*" (p.name or "") != null
+          ) nix-lefthook-narrow-language.devShells.${sys}.default.nativeBuildInputs;
         in
         {
           default = pkgs.mkShell {
@@ -393,10 +396,10 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.setting
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
+            ++ narrowLanguageTools
             ++ [
               batsWithLibs
             ]
@@ -461,10 +464,10 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.setting
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
+            ++ narrowLanguageTools
             ++ [
               batsWithLibs
             ]

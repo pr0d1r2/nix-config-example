@@ -137,6 +137,7 @@ feedback
 fetch
 fetchurl
 file
+filter
 final
 findutils
 flake
@@ -372,6 +373,7 @@ then
 thinking
 token
 toml
+tools
 toplevel
 touch
 tracker

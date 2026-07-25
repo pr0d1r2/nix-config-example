@@ -53,6 +53,7 @@ behavior
 benchmark
 big
 bin
+binaries
 bindings
 bit
 blocked
@@ -61,9 +62,9 @@ both
 box
 bracing
 branch
-broke
 branches
 break
+broke
 budget
 bug
 bugs
@@ -168,6 +169,8 @@ does
 done
 drift
 driven
+drop
+dropped
 duplicate
 each
 edit
@@ -210,6 +213,7 @@ exist
 existing
 exploration
 exploring
+exposes
 extension
 extensions
 extra
@@ -231,9 +235,9 @@ files
 final
 find
 findutils
-fixes
 first
 fix
+fixes
 flag
 flake
 flakes
@@ -252,6 +256,7 @@ found
 fpat
 fragments
 free
+freeze
 from
 full
 function
@@ -315,6 +320,7 @@ inside
 install
 installed
 instead
+insufficient
 integer
 integration
 intended
@@ -408,6 +414,7 @@ must
 name
 namespace
 narrow
+native
 natively
 navigable
 need
@@ -444,7 +451,9 @@ out
 output
 outside
 over
+overlay
 overlays
+overrides
 own
 package
 packages
@@ -515,6 +524,7 @@ realize
 rebuild
 recursive
 red
+reference
 references
 reflection
 reflective
@@ -565,6 +575,7 @@ semantic
 separate
 server
 set
+setting
 setup
 shell
 shellcheck
@@ -607,6 +618,7 @@ status
 statusline
 stay
 step
+still
 store
 string
 structure
@@ -624,6 +636,7 @@ suppose
 surfaces
 switch
 symlink
+syncer
 synonym
 syntax
 system
@@ -680,8 +693,8 @@ unknown
 unnecessary
 unstable
 unused
-update
 unwhitelisted
+update
 upstream
 use
 used
