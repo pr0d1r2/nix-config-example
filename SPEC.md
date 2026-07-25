@@ -109,3 +109,4 @@ B12|2026-07-25|shell/bats files use 4-space indent but .editorconfig sets indent
 B13|2026-07-25|CI cachix push 403 on PRs: auth token passed unconditionally causes push attempts that fail on pull_request events|gate cachix-auth-token with github.event_name == 'push' so PRs use read-only cache
 B14|2026-07-25|B9-B13 fixes added 20 words to SPEC.md not in .narrow-language-markdown.dic|add missing words to dic
 B15|2026-07-25|pin update introduced 7 new unwhitelisted CVEs (bytes, gawk, glib, gzip, idna, patch, util-linux)|add to .vulnix-whitelist-system.toml
+B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but not to .narrow-language-other.dic|add 4 words (gawk, glib, gzip, util) to dic
