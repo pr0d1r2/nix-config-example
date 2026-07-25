@@ -107,3 +107,4 @@ B10|2026-07-25|nix-lefthook-narrow-language upstream removed packages.default, o
 B11|2026-07-25|B10 fix insufficient: .setting is a config syncer (sync-setting), not the tool binaries; lefthook-narrow-language/freeze still missing|extract tool packages from upstream devShells.default.nativeBuildInputs instead of using .setting
 B12|2026-07-25|shell/bats files use 4-space indent but .editorconfig sets indent_size=2; shfmt reads editorconfig and fails|reformat all .sh and .bats files to 2-space indent via shfmt -w
 B13|2026-07-25|CI cachix push 403 on PRs: auth token passed unconditionally causes push attempts that fail on pull_request events|gate cachix-auth-token with github.event_name == 'push' so PRs use read-only cache
+B14|2026-07-25|B9-B13 fixes added 20 words to SPEC.md not in .narrow-language-markdown.dic|add missing words to dic

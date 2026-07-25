@@ -39,6 +39,8 @@ arm
 ascii
 assert
 assigned
+attempts
+auth
 auto
 awk
 back
@@ -74,11 +76,14 @@ builds
 built
 bundles
 but
+cache
+cachix
 calling
 can
 cannot
 case
 cause
+causes
 change
 changed
 changes
@@ -200,6 +205,8 @@ evaluate
 evaluates
 evaluation
 even
+event
+events
 every
 exact
 example
@@ -221,6 +228,7 @@ extract
 extracted
 factor
 fadi
+fail
 fails
 failures
 fall
@@ -263,6 +271,7 @@ function
 functions
 further
 gaps
+gate
 gawk
 gemfile
 generate
@@ -312,6 +321,7 @@ implementation
 implementations
 include
 incompatible
+indent
 ingestion
 inline
 input
@@ -464,6 +474,7 @@ parse
 part
 partial
 pass
+passed
 passes
 password
 paste
@@ -509,15 +520,18 @@ project
 proper
 protection
 provides
+pull
 push
 pushes
 python
 query
 quick
 rather
+read
 reading
 readlink
 readme
+reads
 ready
 real
 realize
@@ -529,6 +543,7 @@ references
 reflection
 reflective
 reflects
+reformat
 regex
 registry
 related
@@ -547,6 +562,7 @@ replaces
 repo
 reports
 repos
+request
 resolved
 result
 reuse
@@ -575,6 +591,7 @@ semantic
 separate
 server
 set
+sets
 setting
 setup
 shell
@@ -589,6 +606,7 @@ signal
 silicon
 similar
 single
+size
 skeptic
 skill
 skills
@@ -600,6 +618,7 @@ something
 sort
 sorted
 source
+space
 spec
 specific
 specs
@@ -684,6 +703,7 @@ typescript
 typos
 uid
 unblock
+unconditionally
 under
 unfamiliar
 unicode
