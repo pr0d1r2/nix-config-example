@@ -102,3 +102,4 @@ B5|2026-07-04|unwhitelisted CVEs in vulnix-scan|add to whitelist
 B6|2026-07-04|B5 fix broke dic + line length|update dics, shorten
 B7|2026-07-04|bats-failures-only nix-dev-shell-agentic needs $HOME|update input pin
 B8|2026-07-04|B4-B7 fixes added words not in dic|add 8 words to dic
+B9|2026-07-25|pin update broke flake: nix-lefthook dropped overlays output, upstream inputs renamed|remove nix-lefthook overlay+input, drop stale follows overrides
