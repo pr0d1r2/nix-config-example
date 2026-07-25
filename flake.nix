@@ -393,7 +393,7 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.default
+              nix-lefthook-narrow-language.packages.${sys}.setting
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
@@ -461,7 +461,7 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.default
+              nix-lefthook-narrow-language.packages.${sys}.setting
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
