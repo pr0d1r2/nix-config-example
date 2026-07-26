@@ -113,3 +113,4 @@ B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but no
 B17|2026-07-25|SPEC.md uses CVE not in markdown dic|add cve to markdown dic
 B18|2026-07-26|stable ldns and openssh have new CVEs|overlay fixed versions from unstable
 B19|2026-07-26|ARM runner flake eval hit default hook timeout|set ARM flake eval and check timeout 120
+B20|2026-07-26|case patterns were indented but shfmt requires them aligned with case|align case patterns with case
