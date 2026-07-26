@@ -111,3 +111,4 @@ B14|2026-07-25|B9-B13 fixes added 20 words to SPEC.md not in .narrow-language-ma
 B15|2026-07-25|pin update introduced 7 new unwhitelisted CVEs (bytes, gawk, glib, gzip, idna, patch, util-linux)|add to .vulnix-whitelist-system.toml
 B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but not to .narrow-language-other.dic|add 4 words (gawk, glib, gzip, util) to dic
 B17|2026-07-25|SPEC.md uses CVE not in markdown dic|add cve to markdown dic
+B18|2026-07-26|stable ldns and openssh have new CVEs|overlay fixed versions from unstable

@@ -247,6 +247,7 @@ find
 findutils
 first
 fix
+fixed
 fixes
 flag
 flake
@@ -455,6 +456,7 @@ numerically
 one
 only
 opensourcing
+openssh
 openssl
 operations
 opposite
@@ -637,6 +639,7 @@ stale
 start
 starting
 starts
+stable
 stat
 state
 statix

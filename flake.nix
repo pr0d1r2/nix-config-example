@@ -257,10 +257,19 @@
         "aarch64-linux"
       ];
       overlays = [
-        (_: prev: {
-          direnv = prev.direnv.overrideAttrs { doCheck = false; };
-          inherit (nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system}) vulnix;
-        })
+        (
+          _: prev:
+          let
+            unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
+          in
+          {
+            direnv = prev.direnv.overrideAttrs { doCheck = false; };
+            inherit (unstable) vulnix;
+          }
+          // nixpkgs.lib.optionalAttrs prev.stdenv.hostPlatform.isLinux {
+            inherit (unstable) ldns openssh;
+          }
+        )
       ];
       pkgsFor =
         system:

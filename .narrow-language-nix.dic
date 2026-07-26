@@ -253,6 +253,8 @@ nodejs
 normal
 null
 only
+openssh
+optional
 options
 order
 org
