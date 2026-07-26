@@ -69,10 +69,7 @@
     };
     nix-lefthook-bats-changed = {
       url = "github:pr0d1r2/nix-lefthook-bats-changed";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nix-lefthook-bats-failures-only.follows = "nix-lefthook-bats-failures-only";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-lefthook-taplo = {
       url = "github:pr0d1r2/nix-lefthook-taplo";
@@ -127,10 +124,7 @@
     };
     nix-lefthook-commit-msg-lint = {
       url = "github:pr0d1r2/nix-lefthook-commit-msg-lint";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nix-lefthook-unicode-lint.follows = "nix-lefthook-unicode-lint";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-lefthook-editorconfig-checker = {
       url = "github:pr0d1r2/nix-lefthook-editorconfig-checker";
@@ -138,10 +132,7 @@
     };
     nix-lefthook-execute-permissions = {
       url = "github:pr0d1r2/nix-lefthook-execute-permissions";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nix-lefthook-unicode-lint.follows = "nix-lefthook-unicode-lint";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-lefthook-file-size-check = {
       url = "github:pr0d1r2/nix-lefthook-file-size-check";
@@ -160,10 +151,7 @@
     };
     nix-lefthook-linter-coverage = {
       url = "github:pr0d1r2/nix-lefthook-linter-coverage";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nix-lefthook-unicode-lint.follows = "nix-lefthook-unicode-lint";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-lefthook-nix-flake-check = {
       url = "github:pr0d1r2/nix-lefthook-nix-flake-check";
@@ -179,10 +167,6 @@
     };
     nix-lefthook-actionlint = {
       url = "github:pr0d1r2/nix-lefthook-actionlint";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-lefthook = {
-      url = "github:pr0d1r2/nix-lefthook";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -230,7 +214,6 @@
       nix-lefthook-narrow-language,
       nix-lefthook-tdd-order-bats,
       nix-lefthook-actionlint,
-      nix-lefthook,
       ...
     }:
     let
@@ -274,11 +257,19 @@
         "aarch64-linux"
       ];
       overlays = [
-        nix-lefthook.overlays.default
-        (_: prev: {
-          direnv = prev.direnv.overrideAttrs { doCheck = false; };
-          inherit (nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system}) vulnix;
-        })
+        (
+          _: prev:
+          let
+            unstable = nixpkgs-unstable.legacyPackages.${prev.stdenv.hostPlatform.system};
+          in
+          {
+            direnv = prev.direnv.overrideAttrs { doCheck = false; };
+            inherit (unstable) vulnix;
+          }
+          // nixpkgs.lib.optionalAttrs prev.stdenv.hostPlatform.isLinux {
+            inherit (unstable) ldns openssh;
+          }
+        )
       ];
       pkgsFor =
         system:
@@ -377,6 +368,9 @@
             p.bats-assert
             p.bats-file
           ]);
+          narrowLanguageTools = builtins.filter (
+            p: builtins.match "lefthook-narrow-language.*" (p.name or "") != null
+          ) nix-lefthook-narrow-language.devShells.${sys}.default.nativeBuildInputs;
         in
         {
           default = pkgs.mkShell {
@@ -411,10 +405,10 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
+            ++ narrowLanguageTools
             ++ [
               batsWithLibs
             ]
@@ -479,10 +473,10 @@
               nix-lefthook-markdownlint.packages.${sys}.default
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-narrow-language.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
               nix-lefthook-actionlint.packages.${sys}.default
             ]
+            ++ narrowLanguageTools
             ++ [
               batsWithLibs
             ]

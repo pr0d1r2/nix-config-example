@@ -215,6 +215,7 @@ from
 function
 functions
 furnished
+gawk
 gem
 gemfile
 gemset
@@ -228,11 +229,13 @@ github
 gitignore
 gitkeep
 gitleaks
+glib
 glibc
 glob
 gmail
 gnulib
 granted
+gzip
 has
 haskell
 heap
@@ -548,6 +551,7 @@ user
 users
 uses
 usr
+util
 utf
 vault
 ver

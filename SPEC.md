@@ -102,3 +102,14 @@ B5|2026-07-04|unwhitelisted CVEs in vulnix-scan|add to whitelist
 B6|2026-07-04|B5 fix broke dic + line length|update dics, shorten
 B7|2026-07-04|bats-failures-only nix-dev-shell-agentic needs $HOME|update input pin
 B8|2026-07-04|B4-B7 fixes added words not in dic|add 8 words to dic
+B9|2026-07-25|pin update broke flake: nix-lefthook dropped overlays output, upstream inputs renamed|remove nix-lefthook overlay+input, drop stale follows overrides
+B10|2026-07-25|nix-lefthook-narrow-language upstream removed packages.default, only exposes packages.setting|reference .setting instead of .default in devShells
+B11|2026-07-25|B10 fix insufficient: .setting is a config syncer (sync-setting), not the tool binaries; lefthook-narrow-language/freeze still missing|extract tool packages from upstream devShells.default.nativeBuildInputs instead of using .setting
+B12|2026-07-25|shell/bats files use 4-space indent but .editorconfig sets indent_size=2; shfmt reads editorconfig and fails|reformat all .sh and .bats files to 2-space indent via shfmt -w
+B13|2026-07-25|CI cachix push 403 on PRs: auth token passed unconditionally causes push attempts that fail on pull_request events|gate cachix-auth-token with github.event_name == 'push' so PRs use read-only cache
+B14|2026-07-25|B9-B13 fixes added 20 words to SPEC.md not in .narrow-language-markdown.dic|add missing words to dic
+B15|2026-07-25|pin update introduced 7 new unwhitelisted CVEs (bytes, gawk, glib, gzip, idna, patch, util-linux)|add to .vulnix-whitelist-system.toml
+B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but not to .narrow-language-other.dic|add 4 words (gawk, glib, gzip, util) to dic
+B17|2026-07-25|SPEC.md uses CVE not in markdown dic|add cve to markdown dic
+B18|2026-07-26|stable ldns and openssh have new CVEs|overlay fixed versions from unstable
+B19|2026-07-26|ARM runner flake eval hit default hook timeout|set ARM flake eval and check timeout 120

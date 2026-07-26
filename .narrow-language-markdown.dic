@@ -39,6 +39,8 @@ arm
 ascii
 assert
 assigned
+attempts
+auth
 auto
 awk
 back
@@ -53,6 +55,7 @@ behavior
 benchmark
 big
 bin
+binaries
 bindings
 bit
 blocked
@@ -61,9 +64,9 @@ both
 box
 bracing
 branch
-broke
 branches
 break
+broke
 budget
 bug
 bugs
@@ -73,11 +76,15 @@ builds
 built
 bundles
 but
+bytes
+cache
+cachix
 calling
 can
 cannot
 case
 cause
+causes
 change
 changed
 changes
@@ -131,6 +138,7 @@ cross
 current
 custom
 customization
+cve
 cves
 darwin
 data
@@ -168,6 +176,8 @@ does
 done
 drift
 driven
+drop
+dropped
 duplicate
 each
 edit
@@ -197,6 +207,8 @@ evaluate
 evaluates
 evaluation
 even
+event
+events
 every
 exact
 example
@@ -210,6 +222,7 @@ exist
 existing
 exploration
 exploring
+exposes
 extension
 extensions
 extra
@@ -217,6 +230,7 @@ extract
 extracted
 factor
 fadi
+fail
 fails
 failures
 fall
@@ -231,9 +245,10 @@ files
 final
 find
 findutils
-fixes
 first
 fix
+fixed
+fixes
 flag
 flake
 flakes
@@ -252,12 +267,14 @@ found
 fpat
 fragments
 free
+freeze
 from
 full
 function
 functions
 further
 gaps
+gate
 gawk
 gemfile
 generate
@@ -270,6 +287,8 @@ github
 gitignore
 gitkeep
 give
+glib
+gzip
 gnu
 gnugrep
 gnused
@@ -299,6 +318,7 @@ hunspell
 hybrid
 idempotent
 identically
+idna
 identifiers
 identity
 ignore
@@ -307,6 +327,7 @@ implementation
 implementations
 include
 incompatible
+indent
 ingestion
 inline
 input
@@ -315,9 +336,11 @@ inside
 install
 installed
 instead
+insufficient
 integer
 integration
 intended
+introduced
 interfaces
 invariants
 investigating
@@ -408,6 +431,7 @@ must
 name
 namespace
 narrow
+native
 natively
 navigable
 need
@@ -432,6 +456,7 @@ numerically
 one
 only
 opensourcing
+openssh
 openssl
 operations
 opposite
@@ -444,7 +469,9 @@ out
 output
 outside
 over
+overlay
 overlays
+overrides
 own
 package
 packages
@@ -455,9 +482,11 @@ parse
 part
 partial
 pass
+passed
 passes
 password
 paste
+patch
 path
 paths
 pattern
@@ -500,25 +529,30 @@ project
 proper
 protection
 provides
+pull
 push
 pushes
 python
 query
 quick
 rather
+read
 reading
 readlink
 readme
+reads
 ready
 real
 realize
 rebuild
 recursive
 red
+reference
 references
 reflection
 reflective
 reflects
+reformat
 regex
 registry
 related
@@ -537,6 +571,7 @@ replaces
 repo
 reports
 repos
+request
 resolved
 result
 reuse
@@ -565,6 +600,8 @@ semantic
 separate
 server
 set
+sets
+setting
 setup
 shell
 shellcheck
@@ -578,6 +615,7 @@ signal
 silicon
 similar
 single
+size
 skeptic
 skill
 skills
@@ -589,6 +627,7 @@ something
 sort
 sorted
 source
+space
 spec
 specific
 specs
@@ -600,6 +639,7 @@ stale
 start
 starting
 starts
+stable
 stat
 state
 statix
@@ -607,6 +647,7 @@ status
 statusline
 stay
 step
+still
 store
 string
 structure
@@ -624,6 +665,7 @@ suppose
 surfaces
 switch
 symlink
+syncer
 synonym
 syntax
 system
@@ -671,6 +713,7 @@ typescript
 typos
 uid
 unblock
+unconditionally
 under
 unfamiliar
 unicode
@@ -680,8 +723,9 @@ unknown
 unnecessary
 unstable
 unused
-update
 unwhitelisted
+util
+update
 upstream
 use
 used

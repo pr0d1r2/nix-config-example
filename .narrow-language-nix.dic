@@ -137,6 +137,7 @@ feedback
 fetch
 fetchurl
 file
+filter
 final
 findutils
 flake
@@ -252,6 +253,8 @@ nodejs
 normal
 null
 only
+openssh
+optional
 options
 order
 org
@@ -372,6 +375,7 @@ then
 thinking
 token
 toml
+tools
 toplevel
 touch
 tracker
