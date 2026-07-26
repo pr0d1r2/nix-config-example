@@ -19,6 +19,8 @@ after
 agent
 agentic
 aliases
+align
+aligned
 all
 allocate
 allow
@@ -333,6 +335,7 @@ inline
 input
 inputs
 inside
+indented
 install
 installed
 instead
@@ -490,6 +493,7 @@ patch
 path
 paths
 pattern
+patterns
 per
 perl
 personal
@@ -572,6 +576,7 @@ repo
 reports
 repos
 request
+requires
 resolved
 result
 reuse
@@ -748,6 +753,7 @@ warnings
 watch
 watched
 way
+were
 what
 when
 where
