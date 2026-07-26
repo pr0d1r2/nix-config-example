@@ -34,4 +34,6 @@ jobs:
         with:
           extra-platforms: aarch64-linux
           keep-home: "true"
+          flake-check-timeout: "120"
+          flake-eval-timeout: "120"
           cachix-auth-token: ${{ github.event_name == 'push' && secrets.CACHIX_AUTH_TOKEN || '' }}
