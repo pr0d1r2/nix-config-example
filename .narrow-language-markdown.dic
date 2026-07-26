@@ -213,6 +213,7 @@ event
 events
 every
 exact
+exceeded
 example
 examples
 except
@@ -329,6 +330,7 @@ implementation
 implementations
 include
 incompatible
+increase
 indent
 ingestion
 inline
@@ -598,6 +600,8 @@ scheme
 script
 scripts
 search
+second
+seconds
 sed
 see
 select
