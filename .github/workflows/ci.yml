@@ -13,6 +13,8 @@ jobs:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           keep-home: "true"
+          flake-check-timeout: "600"
+          flake-eval-timeout: "600"
 
   build-darwin:
     needs: build-linux
