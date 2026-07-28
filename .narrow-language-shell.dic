@@ -19,6 +19,7 @@ appears
 applied
 apply
 are
+args
 argument
 arguments
 arm
@@ -45,6 +46,7 @@ branch
 brussee
 build
 builds
+built
 builtins
 bundler
 but
@@ -138,6 +140,7 @@ elif
 else
 email
 embedded
+embeds
 empty
 end
 enter
@@ -195,6 +198,7 @@ fragments
 from
 gcroots
 git
+github
 given
 gives
 golden
@@ -271,6 +275,7 @@ manual
 manually
 marketplace
 matching
+materialized
 maxdepth
 merge
 message
@@ -299,6 +304,7 @@ nothing
 now
 null
 nvdcve
+offline
 old
 once
 operator
@@ -333,6 +339,7 @@ plist
 plugin
 plugins
 populate
+populated
 populates
 port
 post
@@ -398,11 +405,13 @@ safe
 same
 sandbox
 scan
+scanner
 scanning
 script
 scripts
 search
 second
+sed
 selected
 separates
 serve
