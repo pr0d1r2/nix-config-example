@@ -49,27 +49,16 @@
             pname = "nvd-cache";
             version = builtins.substring 0 12 revision;
             dontUnpack = true;
+            FEED_FARM = feedFarm;
+            POPULATE = ./populate.py;
+            SERVE_FEEDS = ./serve-feeds.py;
+            VULNIX_PYTHONPATH = "${pkgs.vulnix}/${pkgs.python3.sitePackages}:${pkgs.python3Packages.makePythonPath pkgs.vulnix.propagatedBuildInputs}";
             nativeBuildInputs = [
               pkgs.curl
               pkgs.python3
               pkgs.vulnix
             ];
-            buildPhase = ''
-              runHook preBuild
-              export HOME=$TMPDIR
-              export PYTHONPATH=${pkgs.vulnix}/${pkgs.python3.sitePackages}:${pkgs.python3Packages.makePythonPath pkgs.vulnix.propagatedBuildInputs}
-              mkdir -p "$TMPDIR/cache"
-              port=$((20000 + $(echo "$NIX_BUILD_TOP" | cksum | cut -d' ' -f1) % 20000))
-              python3 ${./serve-feeds.py} ${feedFarm} "$port" &
-              server=$!
-              trap 'kill "$server"' EXIT
-              until curl -sf "http://127.0.0.1:$port/nvdcve-2.0-modified.json.gz" -o /dev/null; do
-                sleep 0.2
-              done
-              python3 ${./populate.py} "http://127.0.0.1:$port/" "$TMPDIR/cache"
-              test -s "$TMPDIR/cache/Data.fs"
-              runHook postBuild
-            '';
+            buildPhase = builtins.readFile ./build.sh;
             installPhase = ''
               runHook preInstall
               mkdir -p "$out"

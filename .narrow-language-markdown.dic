@@ -213,9 +213,9 @@ event
 events
 every
 exact
-exceeded
 example
 examples
+exceeded
 except
 exclude
 excluded
@@ -241,6 +241,8 @@ fallback
 fast
 feature
 features
+feed
+feeds
 fetch
 fewer
 file
@@ -291,7 +293,6 @@ gitignore
 gitkeep
 give
 glib
-gzip
 gnu
 gnugrep
 gnused
@@ -300,9 +301,12 @@ green
 grep
 group
 groups
+gzip
+had
 handling
 happen
 has
+hashes
 have
 helper
 here
@@ -321,10 +325,11 @@ hunspell
 hybrid
 idempotent
 identically
-idna
 identifiers
 identity
+idna
 ignore
+immutable
 imperative
 implementation
 implementations
@@ -332,12 +337,12 @@ include
 incompatible
 increase
 indent
+indented
 ingestion
 inline
 input
 inputs
 inside
-indented
 install
 installed
 instead
@@ -345,8 +350,8 @@ insufficient
 integer
 integration
 intended
-introduced
 interfaces
+introduced
 invariants
 investigating
 invocations
@@ -368,6 +373,7 @@ lacks
 lan
 language
 languages
+large
 late
 layout
 learn
@@ -394,12 +400,14 @@ local
 locally
 lock
 log
+longer
 looking
 lower
 mac
 machine
 machines
 macos
+made
 main
 make
 manager
@@ -408,6 +416,7 @@ markdown
 markdownlint
 markers
 match
+matched
 matches
 matters
 max
@@ -433,6 +442,7 @@ mount
 multi
 multiple
 must
+mutable
 name
 namespace
 narrow
@@ -480,6 +490,7 @@ overrides
 own
 package
 packages
+pages
 parallel
 parameterized
 parametrize
@@ -572,6 +583,7 @@ remove
 removed
 renamed
 renames
+repeated
 replace
 replaces
 repo
@@ -582,6 +594,7 @@ requires
 resolved
 result
 reuse
+revision
 rpi
 ruby
 rule
@@ -629,6 +642,7 @@ skeptic
 skill
 skills
 skip
+snapshot
 socat
 solutions
 some
@@ -643,12 +657,12 @@ specs
 speed
 spell
 spinner
+stable
 staged
 stale
 start
 starting
 starts
-stable
 stat
 state
 statix
@@ -706,6 +720,7 @@ todo
 token
 tokens
 toml
+too
 tool
 tooling
 tools
@@ -733,7 +748,6 @@ unnecessary
 unstable
 unused
 unwhitelisted
-util
 update
 upstream
 use
@@ -744,6 +758,7 @@ users
 uses
 using
 usr
+util
 var
 variants
 verify

@@ -61,6 +61,7 @@ check
 checkout
 checks
 chmod
+cksum
 claude
 clean
 cleanly
@@ -167,8 +168,11 @@ failure
 fake
 fallback
 false
+farm
 fast
 features
+feed
+feeds
 file
 files
 find
@@ -287,6 +291,7 @@ not
 nothing
 now
 null
+nvdcve
 old
 once
 operator
@@ -316,7 +321,9 @@ platform
 plist
 plugin
 plugins
+populate
 port
+post
 postgre
 postgresql
 pre
@@ -339,6 +346,7 @@ provided
 provisioning
 push
 python
+pythonpath
 quiet
 quit
 raw
@@ -382,6 +390,7 @@ search
 second
 selected
 separates
+serve
 server
 servers
 session
@@ -454,8 +463,10 @@ token
 toml
 tool
 tools
+top
 toplevel
 tracker
+trap
 tree
 tries
 true

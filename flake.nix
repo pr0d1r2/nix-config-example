@@ -53,11 +53,49 @@
     };
     nix-lefthook-unicode-lint = {
       url = "github:pr0d1r2/nix-lefthook-unicode-lint";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-lock.follows = "nixpkgs-lock";
+        nix-lefthook-bats-parse-src.follows = "nix-lefthook-bats-parse";
+        nix-lefthook-deadnix-src.follows = "nix-lefthook-deadnix";
+        nix-lefthook-editorconfig-checker-src.follows = "nix-lefthook-editorconfig-checker";
+        nix-lefthook-file-size-check-src.follows = "nix-lefthook-file-size-check";
+        nix-lefthook-git-conflict-markers-src.follows = "nix-lefthook-git-conflict-markers";
+        nix-lefthook-git-no-local-paths-src.follows = "nix-lefthook-git-no-local-paths";
+        nix-lefthook-markdownlint-src.follows = "nix-lefthook-markdownlint";
+        nix-lefthook-missing-final-newline-src.follows = "nix-lefthook-missing-final-newline";
+        nix-lefthook-nix-no-embedded-shell-src.follows = "nix-lefthook-nix-no-embedded-shell";
+        nix-lefthook-nixfmt-src.follows = "nix-lefthook-nixfmt";
+        nix-lefthook-shellcheck-src.follows = "nix-lefthook-shellcheck";
+        nix-lefthook-shfmt-src.follows = "nix-lefthook-shfmt";
+        nix-lefthook-statix-src.follows = "nix-lefthook-statix";
+        nix-lefthook-taplo-src.follows = "nix-lefthook-taplo";
+        nix-lefthook-trailing-whitespace-src.follows = "nix-lefthook-trailing-whitespace";
+        nix-lefthook-typos-src.follows = "nix-lefthook-typos";
+        nix-lefthook-yamllint-src.follows = "nix-lefthook-yamllint";
+      };
     };
     nix-lefthook-no-shell-functions = {
       url = "github:pr0d1r2/nix-lefthook-no-shell-functions";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-lock.follows = "nixpkgs-lock";
+        nix-lefthook-deadnix-src.follows = "nix-lefthook-deadnix";
+        nix-lefthook-editorconfig-checker-src.follows = "nix-lefthook-editorconfig-checker";
+        nix-lefthook-file-size-check-src.follows = "nix-lefthook-file-size-check";
+        nix-lefthook-git-conflict-markers-src.follows = "nix-lefthook-git-conflict-markers";
+        nix-lefthook-git-no-local-paths-src.follows = "nix-lefthook-git-no-local-paths";
+        nix-lefthook-markdownlint-src.follows = "nix-lefthook-markdownlint";
+        nix-lefthook-missing-final-newline-src.follows = "nix-lefthook-missing-final-newline";
+        nix-lefthook-nix-no-embedded-shell-src.follows = "nix-lefthook-nix-no-embedded-shell";
+        nix-lefthook-nixfmt-src.follows = "nix-lefthook-nixfmt";
+        nix-lefthook-shellcheck-src.follows = "nix-lefthook-shellcheck";
+        nix-lefthook-shfmt-src.follows = "nix-lefthook-shfmt";
+        nix-lefthook-statix-src.follows = "nix-lefthook-statix";
+        nix-lefthook-trailing-whitespace-src.follows = "nix-lefthook-trailing-whitespace";
+        nix-lefthook-typos-src.follows = "nix-lefthook-typos";
+        nix-lefthook-yamllint-src.follows = "nix-lefthook-yamllint";
+      };
     };
     nix-lefthook-bats-parse = {
       url = "github:pr0d1r2/nix-lefthook-bats-parse";
@@ -93,11 +131,42 @@
     };
     nix-lefthook-shellcheck = {
       url = "github:pr0d1r2/nix-lefthook-shellcheck";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-lock.follows = "nixpkgs-lock";
+        nix-lefthook-deadnix-src.follows = "nix-lefthook-deadnix";
+        nix-lefthook-editorconfig-checker-src.follows = "nix-lefthook-editorconfig-checker";
+        nix-lefthook-file-size-check-src.follows = "nix-lefthook-file-size-check";
+        nix-lefthook-git-conflict-markers-src.follows = "nix-lefthook-git-conflict-markers";
+        nix-lefthook-git-no-local-paths-src.follows = "nix-lefthook-git-no-local-paths";
+        nix-lefthook-missing-final-newline-src.follows = "nix-lefthook-missing-final-newline";
+        nix-lefthook-nixfmt-src.follows = "nix-lefthook-nixfmt";
+        nix-lefthook-shfmt-src.follows = "nix-lefthook-shfmt";
+        nix-lefthook-statix-src.follows = "nix-lefthook-statix";
+        nix-lefthook-trailing-whitespace-src.follows = "nix-lefthook-trailing-whitespace";
+        nix-lefthook-typos-src.follows = "nix-lefthook-typos";
+        nix-lefthook-yamllint-src.follows = "nix-lefthook-yamllint";
+      };
     };
     nix-lefthook-shfmt = {
       url = "github:pr0d1r2/nix-lefthook-shfmt";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-lock.follows = "nixpkgs-lock";
+        nix-lefthook-deadnix-src.follows = "nix-lefthook-deadnix";
+        nix-lefthook-editorconfig-checker-src.follows = "nix-lefthook-editorconfig-checker";
+        nix-lefthook-file-size-check-src.follows = "nix-lefthook-file-size-check";
+        nix-lefthook-git-conflict-markers-src.follows = "nix-lefthook-git-conflict-markers";
+        nix-lefthook-git-no-local-paths-src.follows = "nix-lefthook-git-no-local-paths";
+        nix-lefthook-markdownlint-src.follows = "nix-lefthook-markdownlint";
+        nix-lefthook-missing-final-newline-src.follows = "nix-lefthook-missing-final-newline";
+        nix-lefthook-nixfmt-src.follows = "nix-lefthook-nixfmt";
+        nix-lefthook-shellcheck-src.follows = "nix-lefthook-shellcheck";
+        nix-lefthook-statix-src.follows = "nix-lefthook-statix";
+        nix-lefthook-trailing-whitespace-src.follows = "nix-lefthook-trailing-whitespace";
+        nix-lefthook-typos-src.follows = "nix-lefthook-typos";
+        nix-lefthook-yamllint-src.follows = "nix-lefthook-yamllint";
+      };
     };
     nix-lefthook-yamllint = {
       url = "github:pr0d1r2/nix-lefthook-yamllint";
@@ -161,6 +230,7 @@
     nix-lefthook-narrow-language = {
       url = "github:pr0d1r2/nix-lefthook-narrow-language";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-lock.follows = "nixpkgs-lock";
     };
     nix-lefthook-tdd-order-bats = {
       url = "github:pr0d1r2/nix-lefthook-tdd-order-bats";
