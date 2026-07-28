@@ -116,6 +116,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
+        nix-vulnix-nvd-mirror.url = "path:./nix/vulnix-nvd-mirror";
       };
     };
     nix-lefthook-justfile-alphabetical = {

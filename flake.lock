@@ -1535,24 +1535,6 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
-      "inputs": {
-        "systems": "systems_3"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -233948,22 +233930,17 @@
     },
     "nix-vulnix-nvd-mirror": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
         "nixpkgs": "nixpkgs_564"
       },
       "locked": {
-        "lastModified": 1784110876,
-        "narHash": "sha256-lziJl4HIEDWKnFRJTA3Bw1ymRgCy+nf3BWsxW3+QeSo=",
-        "owner": "pr0d1r2",
-        "repo": "nix-vulnix-nvd-mirror",
-        "rev": "d3310e07ab16b9a6fd3e3bccc6142803340f17aa",
-        "type": "github"
+        "path": "./nix/vulnix-nvd-mirror",
+        "type": "path"
       },
       "original": {
-        "owner": "pr0d1r2",
-        "repo": "nix-vulnix-nvd-mirror",
-        "type": "github"
-      }
+        "path": "./nix/vulnix-nvd-mirror",
+        "type": "path"
+      },
+      "parent": []
     },
     "nixpkgs": {
       "locked": {
@@ -252747,8 +252724,8 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "rev": "a799d3e3886da994fa307f817a6bc705ae538eeb",
         "type": "github"
       }
     },
@@ -259920,21 +259897,6 @@
       }
     },
     "systems_2": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",

@@ -116,3 +116,4 @@ B19|2026-07-26|ARM runner flake eval hit default hook timeout|set ARM flake eval
 B20|2026-07-26|case patterns were indented but shfmt requires them aligned with case|align case patterns with case
 B21|2026-07-26|B20 added 6 words missing from markdown dic|add missing words to dic
 B22|2026-07-26|Darwin flake checks exceeded the 120-second CI timeout|increase Darwin flake check and eval timeout to 300 seconds
+B23|2026-07-28|mutable NVD mirror feeds no longer matched hashes pinned by the upstream flake revision|pin the feed snapshot to its immutable gh-pages commit
