@@ -43,6 +43,7 @@ build
 builtins
 bundler
 bxo
+cache
 can
 cargo
 cat
@@ -131,12 +132,16 @@ extra
 eza
 failures
 false
+farm
 fast
 features
+feed
 feedback
+feeds
 fetch
 fetchurl
 file
+filename
 filter
 final
 findutils
@@ -157,6 +162,7 @@ gen
 generate
 git
 github
+githubusercontent
 gitignore
 gitleaks
 global
@@ -177,6 +183,7 @@ hosts
 htop
 hub
 hunspell
+immutable
 import
 imports
 inherit
@@ -206,6 +213,7 @@ libraries
 libs
 license
 licenses
+link
 lint
 linter
 linux
@@ -221,7 +229,9 @@ log
 mac
 macos
 main
+make
 manager
+map
 markdownlint
 markers
 master
@@ -230,12 +240,13 @@ medium
 memory
 merge
 meta
-missing
 mirror
+missing
 mit
 mkdir
 mode
 model
+modified
 module
 modules
 name
@@ -253,6 +264,8 @@ node
 nodejs
 normal
 null
+nvdcve
+old
 only
 openssh
 optional
@@ -272,6 +285,7 @@ packages
 pam
 parallel
 parse
+patch
 path
 paths
 pce
@@ -283,7 +297,10 @@ platform
 plugin
 plugins
 pname
+populate
 port
+post
+postfixup
 postgres
 postgresql
 powerful
@@ -296,13 +313,16 @@ program
 programs
 projects
 prompt
+propagated
 protobuf
 proxy
 pull
 push
 python
+pythonpath
 qdul
 query
+raw
 read
 real
 rebase
@@ -315,6 +335,7 @@ remove
 replace
 repo
 rev
+revision
 ripgrep
 robbyrussell
 root
@@ -328,6 +349,7 @@ scan
 script
 security
 self
+serve
 server
 services
 session
@@ -339,7 +361,9 @@ shellcheck
 shells
 show
 silicon
+site
 size
+snapshot
 socket
 sonnet
 source
@@ -356,6 +380,7 @@ stdenv
 stderr
 stdout
 storage
+substring
 sudo
 suggestion
 support
@@ -374,6 +399,7 @@ them
 theme
 then
 thinking
+tmpdir
 token
 toml
 tools
@@ -390,6 +416,7 @@ typos
 udxhm
 unicode
 unix
+unpack
 unstable
 upstream
 url
@@ -406,6 +433,7 @@ vendor
 version
 vim
 vulnix
+vulnixscan
 wheel
 whitespace
 with

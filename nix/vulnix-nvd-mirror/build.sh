@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+# This file is embedded in a Nix derivation build phase.
 runHook preBuild
 export HOME="$TMPDIR"
 export PYTHONPATH="$VULNIX_PYTHONPATH"

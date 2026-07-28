@@ -203,9 +203,12 @@ pre-commit:
     execute-permissions:
       env:
         LEFTHOOK_EXECUTE_PERMISSIONS_ALLOWED: '^(\\./)?scripts/|^(\\./)?bin/'
+    unicode-lint:
+      env:
+        LEFTHOOK_UNICODE_LINT_TIMEOUT: "120"
 
 pre-push:
-  parallel: true
+  parallel: false
   setup:
     - run: >-
         bash scripts/lefthook/require-dev-shell.sh
@@ -241,9 +244,15 @@ pre-push:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
         LEFTHOOK_TDD_SRC_STRIP: ""
+    bats-changed:
+      env:
+        LEFTHOOK_BATS_CHANGED_TIMEOUT: "300"
     execute-permissions:
       env:
         LEFTHOOK_EXECUTE_PERMISSIONS_ALLOWED: '^(\\./)?scripts/|^(\\./)?bin/'
+    unicode-lint:
+      env:
+        LEFTHOOK_UNICODE_LINT_TIMEOUT: "120"
     linter-coverage:
       skip: true
     bats-unit:

@@ -47,7 +47,7 @@ one closure, three platforms, zero drift
 - cmd: `just eval-all` → evaluate all 3 configs (no build)
 - cmd: `just switch` → `darwin-rebuild switch --flake .`
 - file: `flake.nix` → darwinConfigurations, nixosConfigurations, devShells
-- file: `lefthook.yml` → pre-commit (parallel) + pre-push (parallel)
+- file: `lefthook.yml` → parallel pre-commit + serial pre-push
 - file: `home/users/{username}.nix` → per-user git identity
 - file: `home/modules/claude-code.nix` → Claude Code declarative config
 - file: `.narrow-language-*.dic` → per-language word lists
@@ -77,7 +77,7 @@ id|status|task|cites
 T1|x|scaffold flake w/ darwin + nixos configs (3 platforms)|-
 T2|x|add home-manager w/ parameterized username|V12
 T3|x|add claude-code module via nix-home-manager-claude-code|V11
-T4|x|add lefthook w/ 30+ remote hooks|V1,V2,V3
+T4|x|add lefthook w/ 30+ remote hooks and serialize heavy pre-push checks|V1,V2,V3
 T5|x|add dev shell w/ all tools + ci devShell (no shellHook)|V4,V5,V6
 T6|x|add install-hooks.sh w/ direnv fallback|V8,V9,V10
 T7|x|add CI: nix-lefthook-ci-action → 3 parallel builds|V7
@@ -118,3 +118,4 @@ B21|2026-07-26|B20 added 6 words missing from markdown dic|add missing words to 
 B22|2026-07-26|Darwin flake checks exceeded the 120-second CI timeout|increase Darwin flake check and eval timeout to 300 seconds
 B23|2026-07-28|mutable NVD mirror feeds no longer matched hashes pinned by the upstream flake revision|pin the feed snapshot to its immutable gh-pages commit
 B24|2026-07-28|mirror fix had inline shell and new words; repeated lefthook inputs made the lock too large|extract shell, update dictionaries, and reuse lock inputs
+B25|2026-07-28|NVD mirror changes lacked policy coverage; parallel Nix checks exhausted timeouts; the store cache was read-only|complete coverage, serialize heavy checks, raise timeouts, and make the copied cache writable

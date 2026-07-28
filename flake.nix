@@ -442,6 +442,9 @@
           narrowLanguageTools = builtins.filter (
             p: builtins.match "lefthook-narrow-language.*" (p.name or "") != null
           ) nix-lefthook-narrow-language.devShells.${sys}.default.nativeBuildInputs;
+          vulnixScan = nix-lefthook-vulnix-scan.packages.${sys}.default.overrideAttrs (old: {
+            buildCommand = old.buildCommand + builtins.readFile ./nix/vulnix-scan/patch.sh;
+          });
         in
         {
           default = pkgs.mkShell {
@@ -467,7 +470,7 @@
               nix-lefthook-taplo.packages.${sys}.default
               nix-lefthook-statix.packages.${sys}.default
               nix-lefthook-justfile-alphabetical.packages.${sys}.default
-              nix-lefthook-vulnix-scan.packages.${sys}.default
+              vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               nix-lefthook-editorconfig-checker.packages.${sys}.default
               nix-lefthook-execute-permissions.packages.${sys}.default
@@ -535,7 +538,7 @@
               nix-lefthook-taplo.packages.${sys}.default
               nix-lefthook-statix.packages.${sys}.default
               nix-lefthook-justfile-alphabetical.packages.${sys}.default
-              nix-lefthook-vulnix-scan.packages.${sys}.default
+              vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               nix-lefthook-editorconfig-checker.packages.${sys}.default
               nix-lefthook-execute-permissions.packages.${sys}.default
