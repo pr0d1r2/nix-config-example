@@ -119,3 +119,4 @@ B22|2026-07-26|Darwin flake checks exceeded the 120-second CI timeout|increase D
 B23|2026-07-28|mutable NVD mirror feeds no longer matched hashes pinned by the upstream flake revision|pin the feed snapshot to its immutable gh-pages commit
 B24|2026-07-28|mirror fix had inline shell and new words; repeated lefthook inputs made the lock too large|extract shell, update dictionaries, and reuse lock inputs
 B25|2026-07-28|NVD mirror changes lacked policy coverage; parallel Nix checks exhausted timeouts; the store cache was read-only|complete coverage, serialize heavy checks, raise timeouts, and make the copied cache writable
+B26|2026-08-07|nix-lefthook-editorconfig-checker dropped packages.default; its checker remains in devShells.default|use the checker package from the upstream devShell inputs
