@@ -137,6 +137,11 @@ pre-commit:
     - run: bash scripts/lefthook/require-dev-shell.sh
   commands:
     narrow-language-nix: {}
+    narrow-language-python:
+      glob: "*.py"
+      env:
+        NARROW_LANGUAGE_DICT: .narrow-language-python.dic
+      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\\.py$')
     narrow-language-markdown:
       glob: "*.md"
       run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\\.md$')
@@ -222,6 +227,11 @@ pre-push:
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-nix.dic
       run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.nix$')
+    narrow-language-python:
+      glob: "*.py"
+      env:
+        NARROW_LANGUAGE_DICT: .narrow-language-python.dic
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.py$')
     narrow-language-markdown:
       glob: "*.md"
       env:
