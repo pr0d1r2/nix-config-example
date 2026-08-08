@@ -123,3 +123,4 @@ B26|2026-08-07|nix-lefthook-editorconfig-checker dropped packages.default; its c
 B27|2026-08-08|Vulnix requests legacy CVE JSON/XZ feeds while the mirror only served NVD 2.0 JSON/GZip feeds|serve a compatibility conversion from NVD 2.0 feeds to Vulnix's legacy format
 B28|2026-08-08|single-threaded local NVD mirror could block vulnix behind a readiness or slow feed request until its 10-second timeout|serve feed requests with a reusable threaded HTTP server
 B29|2026-08-08|legacy feed conversion still ran inside each Vulnix request and exceeded its 10-second timeout|precompute legacy feed responses before the mirror readiness probe
+B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only skips ValueError|convert missing-id KeyError to ValueError before vulnix parses feeds
