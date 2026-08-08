@@ -25,6 +25,25 @@ EMPTY_FEED = gzip.compress(
 EMPTY_LEGACY_FEED = lzma.compress(json.dumps({"cve_items": []}).encode())
 
 
+def load_legacy_feeds():
+    feeds = {}
+    for name in ("2021", "2022", "2023", "2024", "2025", "2026", "modified"):
+        path = os.path.join(FEED_DIR, f"nvdcve-2.0-{name}.json.gz")
+        if not os.path.exists(path):
+            continue
+        with gzip.open(path, "rt", encoding="utf-8") as feed:
+            data = json.load(feed)
+        feeds[name] = lzma.compress(
+            json.dumps({"cve_items": data["vulnerabilities"]}).encode()
+        )
+    return feeds
+
+
+# Vulnix has a 10-second HTTP timeout.  Convert the large feeds before the
+# readiness probe succeeds so conversion never happens on the request path.
+LEGACY_FEEDS = load_legacy_feeds()
+
+
 class Handler(BaseHTTPRequestHandler):
     def send_feed(self, code, body):
         self.send_response(code)
@@ -41,16 +60,7 @@ class Handler(BaseHTTPRequestHandler):
             return
         if legacy:
             name = legacy.group(1)
-            path = os.path.join(FEED_DIR, f"nvdcve-2.0-{name}.json.gz")
-            if not os.path.exists(path):
-                self.send_feed(200, EMPTY_LEGACY_FEED)
-                return
-            with gzip.open(path, "rt", encoding="utf-8") as feed:
-                data = json.load(feed)
-            self.send_feed(
-                200,
-                lzma.compress(json.dumps({"cve_items": data["vulnerabilities"]}).encode()),
-            )
+            self.send_feed(200, LEGACY_FEEDS.get(name, EMPTY_LEGACY_FEED))
             return
         path = os.path.join(FEED_DIR, os.path.basename(self.path))
         if os.path.exists(path):
