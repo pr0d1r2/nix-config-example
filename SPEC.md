@@ -127,3 +127,4 @@ B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only
 B31|2026-08-08|upstream nixfmt reformatted the editorconfig checker binding|apply the current nixfmt layout
 B32|2026-08-08|SPEC.md exceeded the generic 8 KiB file-size limit as bug history grew|set an explicit 16 KiB Markdown limit
 B33|2026-08-08|narrow-language Markdown check scanned Python files and rejected their vocabulary|scope Markdown and Nix checks to their matching file extensions
+B34|2026-08-08|narrow-language glob filtered command selection but {push_files} still passed every file to the Nix checker|filter push-file arguments by extension in the command

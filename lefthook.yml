@@ -217,8 +217,14 @@ pre-push:
   commands:
     narrow-language-nix:
       glob: "*.nix"
+      env:
+        NARROW_LANGUAGE_DICT: .narrow-language-nix.dic
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.nix$')
     narrow-language-markdown:
       glob: "*.md"
+      env:
+        NARROW_LANGUAGE_DICT: .narrow-language-markdown.dic
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.md$')
     narrow-language-other:
       exclude:
         - "*.nix"
