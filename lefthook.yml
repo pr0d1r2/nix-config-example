@@ -215,8 +215,10 @@ pre-push:
         lefthook-vulnix-scan
         lefthook-narrow-language
   commands:
-    narrow-language-nix: {}
-    narrow-language-markdown: {}
+    narrow-language-nix:
+      glob: "*.nix"
+    narrow-language-markdown:
+      glob: "*.md"
     narrow-language-other:
       exclude:
         - "*.nix"
