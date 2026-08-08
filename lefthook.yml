@@ -137,7 +137,9 @@ pre-commit:
     - run: bash scripts/lefthook/require-dev-shell.sh
   commands:
     narrow-language-nix: {}
-    narrow-language-markdown: {}
+    narrow-language-markdown:
+      glob: "*.md"
+      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\\.md$')
     narrow-language-nix-add:
       skip: true
     narrow-language-shell-add:
