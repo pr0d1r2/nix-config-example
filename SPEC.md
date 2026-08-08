@@ -119,3 +119,15 @@ B22|2026-07-26|Darwin flake checks exceeded the 120-second CI timeout|increase D
 B23|2026-07-28|mutable NVD mirror feeds no longer matched hashes pinned by the upstream flake revision|pin the feed snapshot to its immutable gh-pages commit
 B24|2026-07-28|mirror fix had inline shell and new words; repeated lefthook inputs made the lock too large|extract shell, update dictionaries, and reuse lock inputs
 B25|2026-07-28|NVD mirror changes lacked policy coverage; parallel Nix checks exhausted timeouts; the store cache was read-only|complete coverage, serialize heavy checks, raise timeouts, and make the copied cache writable
+B26|2026-08-07|nix-lefthook-editorconfig-checker dropped packages.default; its checker remains in devShells.default|use the checker package from the upstream devShell inputs
+B27|2026-08-08|Vulnix requests legacy CVE JSON/XZ feeds while the mirror only served NVD 2.0 JSON/GZip feeds|serve a compatibility conversion from NVD 2.0 feeds to Vulnix's legacy format
+B28|2026-08-08|single-threaded local NVD mirror could block vulnix behind a readiness or slow feed request until its 10-second timeout|serve feed requests with a reusable threaded HTTP server
+B29|2026-08-08|legacy feed conversion still ran inside each Vulnix request and exceeded its 10-second timeout|precompute legacy feed responses before the mirror readiness probe
+B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only skips ValueError|convert missing-id KeyError to ValueError before vulnix parses feeds
+B31|2026-08-08|upstream nixfmt reformatted the editorconfig checker binding|apply the current nixfmt layout
+B32|2026-08-08|SPEC.md exceeded the generic 8 KiB file-size limit as bug history grew|set an explicit 16 KiB Markdown limit
+B33|2026-08-08|narrow-language Markdown check scanned Python files and rejected their vocabulary|scope Markdown and Nix checks to their matching file extensions
+B34|2026-08-08|narrow-language glob filtered command selection but {push_files} still passed every file to the Nix checker|filter push-file arguments by extension in the command
+B35|2026-08-08|pre-commit Markdown checker ran on every staged file despite its name|scope the command to Markdown files and filter staged-file arguments by extension
+B36|2026-08-08|narrow-language dictionaries lacked vocabulary introduced by the mirror compatibility code and CI hook scoping|add the missing words to the matching language dictionaries
+B37|2026-08-08|narrow-language Python glob filtered command selection but {push_files} still passed every file to the checker|filter staged and pushed arguments to Python files
