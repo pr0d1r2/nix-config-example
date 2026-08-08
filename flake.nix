@@ -442,9 +442,11 @@
           narrowLanguageTools = builtins.filter (
             p: builtins.match "lefthook-narrow-language.*" (p.name or "") != null
           ) nix-lefthook-narrow-language.devShells.${sys}.default.nativeBuildInputs;
-          editorconfigChecker = builtins.head (builtins.filter (
-            p: (p.name or "") == "lefthook-editorconfig-checker"
-          ) nix-lefthook-editorconfig-checker.devShells.${sys}.default.nativeBuildInputs);
+          editorconfigChecker = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-editorconfig-checker"
+            ) nix-lefthook-editorconfig-checker.devShells.${sys}.default.nativeBuildInputs
+          );
           vulnixScan = nix-lefthook-vulnix-scan.packages.${sys}.default.overrideAttrs (old: {
             buildCommand = old.buildCommand + builtins.readFile ./nix/vulnix-scan/patch.sh;
           });
