@@ -68,8 +68,8 @@ charge
 charset
 check
 checker
-chore
 checkout
+chore
 claim
 claude
 cli
@@ -127,7 +127,6 @@ dealings
 default
 defined
 delete
-dispatch
 delta
 dep
 dependencies
@@ -144,6 +143,7 @@ dir
 directory
 direnv
 disable
+dispatch
 distribute
 document
 documentation
@@ -235,6 +235,7 @@ glob
 gmail
 gnulib
 granted
+grep
 gzip
 has
 haskell
@@ -323,8 +324,8 @@ may
 memory
 merchantability
 mercurial
-message
 merge
+message
 meta
 misattributed
 missing
@@ -385,10 +386,10 @@ permissions
 permit
 persistent
 person
-peter
-pin
 personal
 persons
+peter
+pin
 pip
 platforms
 portions
@@ -396,6 +397,7 @@ positive
 positives
 pre
 pretty
+printf
 proc
 product
 products
@@ -551,8 +553,8 @@ user
 users
 uses
 usr
-util
 utf
+util
 vault
 ver
 version
@@ -574,10 +576,10 @@ whitespace
 whom
 with
 without
-workflow
-write
 wordnet
 words
+workflow
+write
 wrong
 xargs
 yaml
