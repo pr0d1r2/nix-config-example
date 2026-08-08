@@ -4,7 +4,7 @@ import lzma
 import os
 import re
 import sys
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 FEED_DIR = os.path.abspath(sys.argv[1])
 PORT = int(sys.argv[2])
@@ -63,4 +63,11 @@ class Handler(BaseHTTPRequestHandler):
         pass
 
 
-HTTPServer(("127.0.0.1", PORT), Handler).serve_forever()
+class FeedServer(ThreadingHTTPServer):
+    # The readiness probe and vulnix can overlap while the feed farm is cold.
+    # Keep them independent so a slow client cannot consume vulnix's timeout.
+    daemon_threads = True
+    allow_reuse_address = True
+
+
+FeedServer(("127.0.0.1", PORT), Handler).serve_forever()
