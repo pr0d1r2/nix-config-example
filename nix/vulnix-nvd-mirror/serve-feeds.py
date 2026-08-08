@@ -1,5 +1,6 @@
 import gzip
 import json
+import lzma
 import os
 import re
 import sys
@@ -21,6 +22,7 @@ EMPTY_FEED = gzip.compress(
     ).encode(),
     mtime=0,
 )
+EMPTY_LEGACY_FEED = lzma.compress(json.dumps({"cve_items": []}).encode())
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -32,8 +34,23 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
-        if not FEED_RE.match(self.path):
+        legacy = re.match(r"^/CVE-(\d{4}|modified)\.json\.xz$", self.path)
+        modern = FEED_RE.match(self.path)
+        if not legacy and not modern:
             self.send_feed(404, b"")
+            return
+        if legacy:
+            name = legacy.group(1)
+            path = os.path.join(FEED_DIR, f"nvdcve-2.0-{name}.json.gz")
+            if not os.path.exists(path):
+                self.send_feed(200, EMPTY_LEGACY_FEED)
+                return
+            with gzip.open(path, "rt", encoding="utf-8") as feed:
+                data = json.load(feed)
+            self.send_feed(
+                200,
+                lzma.compress(json.dumps({"cve_items": data["vulnerabilities"]}).encode()),
+            )
             return
         path = os.path.join(FEED_DIR, os.path.basename(self.path))
         if os.path.exists(path):
