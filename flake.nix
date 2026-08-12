@@ -188,10 +188,6 @@
         nix-vulnix-nvd-mirror.url = "path:./nix/vulnix-nvd-mirror";
       };
     };
-    nix-lefthook-justfile-alphabetical = {
-      url = "github:pr0d1r2/nix-lefthook-justfile-alphabetical";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-lefthook-commit-msg-lint = {
       url = "github:pr0d1r2/nix-lefthook-commit-msg-lint";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -262,6 +258,7 @@
       nix-lefthook-ascii-only,
       nix-lefthook-trailing-whitespace,
       nix-lefthook-git-conflict-markers,
+      nix-lefthook-git-no-local-paths,
       nix-lefthook-missing-final-newline,
       nix-lefthook-tcl-syntax,
       nix-lefthook-unicode-lint,
@@ -272,7 +269,6 @@
       nix-lefthook-bats-changed,
       nix-lefthook-taplo,
       nix-lefthook-statix,
-      nix-lefthook-justfile-alphabetical,
       nix-lefthook-vulnix-scan,
       nix-lefthook-commit-msg-lint,
       nix-lefthook-editorconfig-checker,
@@ -447,11 +443,31 @@
               p: (p.name or "") == "lefthook-editorconfig-checker"
             ) nix-lefthook-editorconfig-checker.devShells.${sys}.default.nativeBuildInputs
           );
+          yamllint = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-yamllint"
+            ) nix-lefthook-yamllint.devShells.${sys}.default.nativeBuildInputs
+          );
+          batsParse = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-bats-parse"
+            ) nix-lefthook-bats-parse.devShells.${sys}.default.nativeBuildInputs
+          );
+          gitNoLocalPaths = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-git-no-local-paths"
+            ) nix-lefthook-git-no-local-paths.devShells.${sys}.default.nativeBuildInputs
+          );
+          markdownlint = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-markdownlint"
+            ) nix-lefthook-markdownlint.devShells.${sys}.default.nativeBuildInputs
+          );
           vulnixScan = nix-lefthook-vulnix-scan.packages.${sys}.default.overrideAttrs (old: {
             buildCommand = old.buildCommand + builtins.readFile ./nix/vulnix-scan/patch.sh;
           });
         in
-        {
+        rec {
           default = pkgs.mkShell {
             packages = [
               nix-lefthook-deadnix.packages.${sys}.default
@@ -459,29 +475,29 @@
               nix-lefthook-typos.packages.${sys}.default
               nix-lefthook-shellcheck.packages.${sys}.default
               nix-lefthook-shfmt.packages.${sys}.default
-              nix-lefthook-yamllint.packages.${sys}.default
+              yamllint
               nix-lefthook-nix-flake-eval.packages.${sys}.default
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
               nix-lefthook-git-conflict-markers.packages.${sys}.default
+              gitNoLocalPaths
               nix-lefthook-missing-final-newline.packages.${sys}.default
               nix-lefthook-tcl-syntax.packages.${sys}.default
               nix-lefthook-unicode-lint.packages.${sys}.default
               nix-lefthook-nix-no-embedded-shell.packages.${sys}.default
               nix-lefthook-no-shell-functions.packages.${sys}.default
-              nix-lefthook-bats-parse.packages.${sys}.default
+              batsParse
               nix-lefthook-bats-failures-only.packages.${sys}.default
               nix-lefthook-bats-changed.packages.${sys}.default
               nix-lefthook-taplo.packages.${sys}.default
               nix-lefthook-statix.packages.${sys}.default
-              nix-lefthook-justfile-alphabetical.packages.${sys}.default
               vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               editorconfigChecker
               nix-lefthook-execute-permissions.packages.${sys}.default
               nix-lefthook-file-size-check.packages.${sys}.default
               nix-lefthook-gitleaks.packages.${sys}.default
-              nix-lefthook-markdownlint.packages.${sys}.default
+              markdownlint
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
@@ -520,72 +536,7 @@
             shellHook = builtins.readFile ./nix/dev/shell.sh;
           };
 
-          ci = pkgs.mkShell {
-            packages = [
-              nix-lefthook-deadnix.packages.${sys}.default
-              nix-lefthook-nixfmt.packages.${sys}.default
-              nix-lefthook-typos.packages.${sys}.default
-              nix-lefthook-shellcheck.packages.${sys}.default
-              nix-lefthook-shfmt.packages.${sys}.default
-              nix-lefthook-yamllint.packages.${sys}.default
-              nix-lefthook-nix-flake-eval.packages.${sys}.default
-              nix-lefthook-ascii-only.packages.${sys}.default
-              nix-lefthook-trailing-whitespace.packages.${sys}.default
-              nix-lefthook-git-conflict-markers.packages.${sys}.default
-              nix-lefthook-missing-final-newline.packages.${sys}.default
-              nix-lefthook-tcl-syntax.packages.${sys}.default
-              nix-lefthook-unicode-lint.packages.${sys}.default
-              nix-lefthook-nix-no-embedded-shell.packages.${sys}.default
-              nix-lefthook-no-shell-functions.packages.${sys}.default
-              nix-lefthook-bats-parse.packages.${sys}.default
-              nix-lefthook-bats-failures-only.packages.${sys}.default
-              nix-lefthook-bats-changed.packages.${sys}.default
-              nix-lefthook-taplo.packages.${sys}.default
-              nix-lefthook-statix.packages.${sys}.default
-              nix-lefthook-justfile-alphabetical.packages.${sys}.default
-              vulnixScan
-              nix-lefthook-commit-msg-lint.packages.${sys}.default
-              editorconfigChecker
-              nix-lefthook-execute-permissions.packages.${sys}.default
-              nix-lefthook-file-size-check.packages.${sys}.default
-              nix-lefthook-gitleaks.packages.${sys}.default
-              nix-lefthook-markdownlint.packages.${sys}.default
-              nix-lefthook-linter-coverage.packages.${sys}.default
-              nix-lefthook-nix-flake-check.packages.${sys}.default
-              nix-lefthook-tdd-order-bats.packages.${sys}.default
-              nix-lefthook-actionlint.packages.${sys}.default
-            ]
-            ++ narrowLanguageTools
-            ++ [
-              batsWithLibs
-            ]
-            ++ (with pkgs; [
-              actionlint
-              parallel
-              coreutils
-              deadnix
-              findutils
-              gawk
-              gh
-              gnugrep
-              gnused
-              git
-              hunspell
-              just
-              lefthook
-              nil
-              nixfmt
-              nodejs
-              ripgrep
-              shellcheck
-              shfmt
-              statix
-              typos
-              vulnix
-              wordnet
-              yamllint
-            ]);
-          };
+          ci = default;
         }
       );
     };

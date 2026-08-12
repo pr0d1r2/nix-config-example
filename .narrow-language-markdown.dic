@@ -1,6 +1,7 @@
 aarch
 aborts
 above
+absent
 access
 across
 action
@@ -45,12 +46,15 @@ assigned
 attempts
 auth
 auto
+available
 awk
 back
+backslash
 baseline
 bases
 bash
 bats
+because
 before
 beginning
 behave
@@ -110,6 +114,7 @@ collision
 com
 command
 commands
+commented
 commit
 commits
 committed
@@ -199,6 +204,7 @@ editorconfig
 effect
 email
 embedded
+empty
 enables
 enforce
 enforced
@@ -215,6 +221,7 @@ equivalent
 equivalents
 erb
 error
+escaped
 eval
 evaluate
 evaluates
@@ -235,6 +242,7 @@ executable
 exhausted
 exist
 existing
+exited
 explicit
 exploration
 exploring
@@ -263,6 +271,7 @@ file
 files
 filter
 filtered
+filters
 final
 find
 findutils
@@ -291,6 +300,7 @@ free
 freeze
 from
 full
+fully
 function
 functions
 further
@@ -375,6 +385,7 @@ introduced
 invariants
 investigating
 invocations
+invoked
 iso
 issues
 iterating
@@ -390,6 +401,7 @@ keep
 keeps
 key
 keys
+keyword
 lacked
 lacks
 lan
@@ -577,6 +589,7 @@ project
 proper
 protection
 provides
+provisioned
 pull
 push
 pushed
@@ -597,6 +610,8 @@ ready
 real
 realize
 rebuild
+rec
+received
 records
 recursive
 red
@@ -608,6 +623,8 @@ reflects
 reformat
 reformatted
 regex
+regexes
+registered
 registry
 rejected
 related
@@ -615,6 +632,7 @@ release
 relevance
 relevant
 reload
+remained
 remains
 remote
 remotes
@@ -663,6 +681,7 @@ seconds
 sed
 see
 select
+selected
 selection
 semantic
 separate
@@ -675,6 +694,7 @@ set
 sets
 setting
 setup
+several
 shell
 shellcheck
 shells
@@ -791,6 +811,7 @@ type
 typescript
 typos
 uid
+unavailable
 unblock
 unconditionally
 under
@@ -815,6 +836,7 @@ uses
 using
 usr
 util
+valid
 value
 var
 variants

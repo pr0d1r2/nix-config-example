@@ -78,10 +78,6 @@ remotes:
     ref: main
     configs:
       - lefthook-remote.yml
-  - git_url: https://github.com/pr0d1r2/nix-lefthook-justfile-alphabetical
-    ref: main
-    configs:
-      - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-commit-msg-lint
     ref: main
     configs:
@@ -141,10 +137,10 @@ pre-commit:
       glob: "*.py"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-python.dic
-      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\\.py$')
+      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\.py$')
     narrow-language-markdown:
       glob: "*.md"
-      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\\.md$')
+      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\.md$')
     narrow-language-nix-add:
       skip: true
     narrow-language-shell-add:
@@ -226,17 +222,17 @@ pre-push:
       glob: "*.nix"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-nix.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.nix$')
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.nix$')
     narrow-language-python:
       glob: "*.py"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-python.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.py$')
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.py$')
     narrow-language-markdown:
       glob: "*.md"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-markdown.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\\.md$')
+      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.md$')
     narrow-language-other:
       exclude:
         - "*.nix"
