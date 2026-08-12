@@ -134,3 +134,4 @@ B37|2026-08-08|narrow-language Python glob filtered command selection but {push_
 B38|2026-08-12|several nix-lefthook inputs dropped packages.default and justfile-alphabetical no longer provides its tool|extract available tools from upstream devShell inputs and remove the unavailable tool
 B39|2026-08-12|justfile-alphabetical remote remained registered after its unavailable tool was removed, so CI pre-push invoked a missing command|remove the stale lefthook remote and flake input
 B40|2026-08-12|git-no-local-paths remote was registered but its executable was absent from the dev shell, so CI pre-push exited 127|include the git-no-local-paths hook package in the dev shell
+B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its package list was commented out|reuse the fully provisioned default dev shell for CI
