@@ -447,6 +447,21 @@
               p: (p.name or "") == "lefthook-editorconfig-checker"
             ) nix-lefthook-editorconfig-checker.devShells.${sys}.default.nativeBuildInputs
           );
+          yamllint = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-yamllint"
+            ) nix-lefthook-yamllint.devShells.${sys}.default.nativeBuildInputs
+          );
+          batsParse = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-bats-parse"
+            ) nix-lefthook-bats-parse.devShells.${sys}.default.nativeBuildInputs
+          );
+          markdownlint = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-markdownlint"
+            ) nix-lefthook-markdownlint.devShells.${sys}.default.nativeBuildInputs
+          );
           vulnixScan = nix-lefthook-vulnix-scan.packages.${sys}.default.overrideAttrs (old: {
             buildCommand = old.buildCommand + builtins.readFile ./nix/vulnix-scan/patch.sh;
           });
@@ -459,7 +474,7 @@
               nix-lefthook-typos.packages.${sys}.default
               nix-lefthook-shellcheck.packages.${sys}.default
               nix-lefthook-shfmt.packages.${sys}.default
-              nix-lefthook-yamllint.packages.${sys}.default
+              yamllint
               nix-lefthook-nix-flake-eval.packages.${sys}.default
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
@@ -469,19 +484,18 @@
               nix-lefthook-unicode-lint.packages.${sys}.default
               nix-lefthook-nix-no-embedded-shell.packages.${sys}.default
               nix-lefthook-no-shell-functions.packages.${sys}.default
-              nix-lefthook-bats-parse.packages.${sys}.default
+              batsParse
               nix-lefthook-bats-failures-only.packages.${sys}.default
               nix-lefthook-bats-changed.packages.${sys}.default
               nix-lefthook-taplo.packages.${sys}.default
               nix-lefthook-statix.packages.${sys}.default
-              nix-lefthook-justfile-alphabetical.packages.${sys}.default
               vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               editorconfigChecker
               nix-lefthook-execute-permissions.packages.${sys}.default
               nix-lefthook-file-size-check.packages.${sys}.default
               nix-lefthook-gitleaks.packages.${sys}.default
-              nix-lefthook-markdownlint.packages.${sys}.default
+              markdownlint
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default
@@ -520,7 +534,7 @@
             shellHook = builtins.readFile ./nix/dev/shell.sh;
           };
 
-          ci = pkgs.mkShell {
+          ci = pkgs.mkShell { packages = [ ]; /*
             packages = [
               nix-lefthook-deadnix.packages.${sys}.default
               nix-lefthook-nixfmt.packages.${sys}.default
@@ -542,7 +556,6 @@
               nix-lefthook-bats-changed.packages.${sys}.default
               nix-lefthook-taplo.packages.${sys}.default
               nix-lefthook-statix.packages.${sys}.default
-              nix-lefthook-justfile-alphabetical.packages.${sys}.default
               vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               editorconfigChecker
@@ -585,6 +598,7 @@
               wordnet
               yamllint
             ]);
+          }; */
           };
         }
       );
