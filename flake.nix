@@ -188,10 +188,6 @@
         nix-vulnix-nvd-mirror.url = "path:./nix/vulnix-nvd-mirror";
       };
     };
-    nix-lefthook-justfile-alphabetical = {
-      url = "github:pr0d1r2/nix-lefthook-justfile-alphabetical";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-lefthook-commit-msg-lint = {
       url = "github:pr0d1r2/nix-lefthook-commit-msg-lint";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -272,7 +268,6 @@
       nix-lefthook-bats-changed,
       nix-lefthook-taplo,
       nix-lefthook-statix,
-      nix-lefthook-justfile-alphabetical,
       nix-lefthook-vulnix-scan,
       nix-lefthook-commit-msg-lint,
       nix-lefthook-editorconfig-checker,
