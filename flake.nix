@@ -258,6 +258,7 @@
       nix-lefthook-ascii-only,
       nix-lefthook-trailing-whitespace,
       nix-lefthook-git-conflict-markers,
+      nix-lefthook-git-no-local-paths,
       nix-lefthook-missing-final-newline,
       nix-lefthook-tcl-syntax,
       nix-lefthook-unicode-lint,
@@ -452,6 +453,11 @@
               p: (p.name or "") == "lefthook-bats-parse"
             ) nix-lefthook-bats-parse.devShells.${sys}.default.nativeBuildInputs
           );
+          gitNoLocalPaths = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-git-no-local-paths"
+            ) nix-lefthook-git-no-local-paths.devShells.${sys}.default.nativeBuildInputs
+          );
           markdownlint = builtins.head (
             builtins.filter (
               p: (p.name or "") == "lefthook-markdownlint"
@@ -474,6 +480,7 @@
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
               nix-lefthook-git-conflict-markers.packages.${sys}.default
+              gitNoLocalPaths
               nix-lefthook-missing-final-newline.packages.${sys}.default
               nix-lefthook-tcl-syntax.packages.${sys}.default
               nix-lefthook-unicode-lint.packages.${sys}.default
