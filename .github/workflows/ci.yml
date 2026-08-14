@@ -9,6 +9,8 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    env:
+      HOME: ${{ runner.temp }}
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:

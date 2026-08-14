@@ -139,3 +139,4 @@ B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its pa
 B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so Markdown received flake.nix|use single-backslash extension regexes for staged and pushed files
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
 B44|2026-08-14|flake pin refresh added upstream libgpg-error and unit packages not covered by the vulnix policy|whitelist the two upstream dependency names
+B45|2026-08-14|Linux CI did not provide HOME, but nix-lefthook-ci-action preserves HOME for its isolated dev shell|set HOME to the runner temp directory for build-linux
