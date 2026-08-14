@@ -137,3 +137,4 @@ B40|2026-08-12|git-no-local-paths remote was registered but its executable was a
 B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its package list was commented out|reuse the fully provisioned default dev shell for CI
 B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so Markdown received flake.nix|use single-backslash extension regexes for staged and pushed files
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
+B44|2026-08-14|flake pin refresh added upstream libgpg-error and unit packages not covered by the vulnix policy|whitelist the two upstream dependency names
