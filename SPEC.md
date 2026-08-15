@@ -131,6 +131,7 @@ B34|2026-08-08|narrow-language glob filtered command selection but {push_files} 
 B35|2026-08-08|pre-commit Markdown checker ran on every staged file despite its name|scope the command to Markdown files and filter staged-file arguments by extension
 B36|2026-08-08|narrow-language dictionaries lacked vocabulary introduced by the mirror compatibility code and CI hook scoping|add the missing words to the matching language dictionaries
 B37|2026-08-08|narrow-language Python glob filtered command selection but {push_files} still passed every file to the checker|filter staged and pushed arguments to Python files
+B38|2026-08-15|new active upstream CVEs in libusb and uuid caused vulnix-scan to fail|whitelist the affected upstream packages
 B38|2026-08-12|several nix-lefthook inputs dropped packages.default and justfile-alphabetical no longer provides its tool|extract available tools from upstream devShell inputs and remove the unavailable tool
 B39|2026-08-12|justfile-alphabetical remote remained registered after its unavailable tool was removed, so CI pre-push invoked a missing command|remove the stale lefthook remote and flake input
 B40|2026-08-12|git-no-local-paths remote was registered but its executable was absent from the dev shell, so CI pre-push exited 127|include the git-no-local-paths hook package in the dev shell
