@@ -463,6 +463,11 @@
               p: (p.name or "") == "lefthook-markdownlint"
             ) nix-lefthook-markdownlint.devShells.${sys}.default.nativeBuildInputs
           );
+          statix = builtins.head (
+            builtins.filter (
+              p: (p.name or "") == "lefthook-statix"
+            ) nix-lefthook-statix.devShells.${sys}.default.nativeBuildInputs
+          );
           vulnixScan = nix-lefthook-vulnix-scan.packages.${sys}.default.overrideAttrs (old: {
             buildCommand = old.buildCommand + builtins.readFile ./nix/vulnix-scan/patch.sh;
           });
@@ -490,7 +495,7 @@
               nix-lefthook-bats-failures-only.packages.${sys}.default
               nix-lefthook-bats-changed.packages.${sys}.default
               nix-lefthook-taplo.packages.${sys}.default
-              nix-lefthook-statix.packages.${sys}.default
+              statix
               vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               editorconfigChecker
