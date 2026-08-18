@@ -145,3 +145,4 @@ B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so M
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
 B44|2026-08-18|CI action shell ran lefthook with `HOME` unset, so Git-based bats checks failed|set the GitHub Actions job `HOME` explicitly to `/home/runner`
 B45|2026-08-18|CI action did not preserve the job-level `HOME` inside the dev shell, so Git-based bats checks still failed|provide an isolated HOME fallback in the dev-shell hook when HOME is unset
+B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell narrow-language dictionary|add the new vocabulary to the shell dictionary
