@@ -74,22 +74,26 @@ V14: personalization ! not break existing invariants (V1–V11 hold after fork c
 ## §T TASKS
 
 id|status|task|cites
-T1|x|scaffold flake w/ darwin + nixos configs (3 platforms)|-
-T2|x|add home-manager w/ parameterized username|V12
-T3|x|add claude-code module via nix-home-manager-claude-code|V11
-T4|x|add lefthook w/ 30+ remote hooks and serialize heavy pre-push checks|V1,V2,V3
-T5|x|add dev shell w/ all tools + ci devShell (no shellHook)|V4,V5,V6
-T6|x|add install-hooks.sh w/ direnv fallback|V8,V9,V10
-T7|x|add CI: nix-lefthook-ci-action → 3 parallel builds|V7
-T8|x|add unit + integration tests|V4,V5,V6
-T9|x|add justfile task runner|-
-T10|x|write CLAUDE.md + README|V12
-T11|x|write SPEC.md|-
-T12|x|wait for nix-home-manager-claude-code CI green, generate flake.lock|V11
-T13|x|clean stale follows, verify zero warnings|V4,V5,V6
-T14|x|verify all 3 configs evaluate locally|V4,V5,V6,V13
-T15|.|verify CI green on GitHub after push|V7
-T16|.|set branch protection on main|V7
+T1|.|capture one failing CI run and isolate the first red check|V7
+T2|.|make lefthook CI checks pass independently of builds|V1,V2,V3,V8,V10
+T3|.|make all 3 flake evaluations pass independently of builds|V4,V5,V6,V13
+T4|.|make darwin + linux + linux-arm CI builds pass|V7
+T5|x|scaffold flake w/ darwin + nixos configs (3 platforms)|-
+T6|x|add home-manager w/ parameterized username|V12
+T7|x|add claude-code module via nix-home-manager-claude-code|V11
+T8|x|add lefthook w/ 30+ remote hooks and serialize heavy pre-push checks|V1,V2,V3
+T9|x|add dev shell w/ all tools + ci devShell (no shellHook)|V4,V5,V6
+T10|x|add install-hooks.sh w/ direnv fallback|V8,V9,V10
+T11|x|add CI: nix-lefthook-ci-action → 3 parallel builds|V7
+T12|x|add unit + integration tests|V4,V5,V6
+T13|x|add justfile task runner|-
+T14|x|write CLAUDE.md + README|V12
+T15|x|write SPEC.md|-
+T16|x|wait for nix-home-manager-claude-code CI green, generate flake.lock|V11
+T17|x|clean stale follows, verify zero warnings|V4,V5,V6
+T18|x|verify all 3 configs evaluate locally|V4,V5,V6,V13
+T19|.|verify CI green on GitHub after push|V7
+T20|.|set branch protection on main|V7
 
 ## §B BUGS
 
@@ -139,3 +143,7 @@ B40|2026-08-12|git-no-local-paths remote was registered but its executable was a
 B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its package list was commented out|reuse the fully provisioned default dev shell for CI
 B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so Markdown received flake.nix|use single-backslash extension regexes for staged and pushed files
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
+B44|2026-08-18|CI action shell ran lefthook with `HOME` unset, so Git-based bats checks failed|set the GitHub Actions job `HOME` explicitly to `/home/runner`
+B45|2026-08-18|CI action did not preserve the job-level `HOME` inside the dev shell, so Git-based bats checks still failed|provide an isolated HOME fallback in the dev-shell hook when HOME is unset
+B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell narrow-language dictionary|add the new vocabulary to the shell dictionary
+B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to the failure-history section|add the missing words to the Markdown dictionary

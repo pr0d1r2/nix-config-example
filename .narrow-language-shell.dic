@@ -14,6 +14,7 @@ ahead
 all
 allow
 already
+action
 and
 appears
 applied
@@ -28,6 +29,7 @@ auth
 available
 backup
 backups
+based
 badge
 badges
 banner
@@ -50,6 +52,7 @@ built
 builtins
 bundler
 but
+can
 cache
 cached
 call
@@ -218,6 +221,9 @@ honor
 hook
 hooks
 hosts
+inheriting
+intentionally
+isolated
 idempotent
 ifs
 ignores
@@ -364,6 +370,7 @@ prompt
 proto
 provided
 provisioning
+provide
 push
 python
 pythonpath
@@ -454,6 +461,7 @@ stock
 stop
 stopped
 stopping
+still
 store
 strict
 submit
@@ -525,6 +533,7 @@ while
 whitelist
 will
 with
+without
 work
 worker
 working

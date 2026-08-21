@@ -9,6 +9,8 @@ on:
 jobs:
   build-linux:
     runs-on: ubuntu-latest
+    env:
+      HOME: /home/runner
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
@@ -19,6 +21,8 @@ jobs:
   build-darwin:
     needs: build-linux
     runs-on: macos-latest
+    env:
+      HOME: /Users/runner
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
@@ -29,6 +33,8 @@ jobs:
   build-linux-arm:
     needs: build-linux
     runs-on: ubuntu-latest
+    env:
+      HOME: /home/runner
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
