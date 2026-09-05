@@ -132,6 +132,7 @@ B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only
 B31|2026-08-08|upstream nixfmt reformatted the editorconfig checker binding|apply the current nixfmt layout
 B32|2026-08-08|SPEC.md exceeded the generic 8 KiB file-size limit as bug history grew|set an explicit 16 KiB Markdown limit
 B33|2026-08-08|narrow-language Markdown check scanned Python files and rejected their vocabulary|scope Markdown and Nix checks to their matching file extensions
+B34|2026-09-05|README.md contains a Unicode em dash rejected by narrow-language-markdown|replace it with ASCII punctuation
 B34|2026-08-08|narrow-language glob filtered command selection but {push_files} still passed every file to the Nix checker|filter push-file arguments by extension in the command
 B35|2026-08-08|pre-commit Markdown checker ran on every staged file despite its name|scope the command to Markdown files and filter staged-file arguments by extension
 B36|2026-08-08|narrow-language dictionaries lacked vocabulary introduced by the mirror compatibility code and CI hook scoping|add the missing words to the matching language dictionaries
