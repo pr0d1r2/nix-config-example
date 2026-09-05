@@ -142,6 +142,7 @@ B38|2026-08-12|several nix-lefthook inputs dropped packages.default and justfile
 B39|2026-08-12|justfile-alphabetical remote remained registered after its unavailable tool was removed, so CI pre-push invoked a missing command|remove the stale lefthook remote and flake input
 B40|2026-08-12|git-no-local-paths remote was registered but its executable was absent from the dev shell, so CI pre-push exited 127|include the git-no-local-paths hook package in the dev shell
 B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its package list was commented out|reuse the fully provisioned default dev shell for CI
+B42|2026-09-05|LLM disclaimer used non-ASCII punctuation and section markers, so narrow-language-markdown rejected it|rewrite the affected wording with ASCII characters
 B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so Markdown received flake.nix|use single-backslash extension regexes for staged and pushed files
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
 B44|2026-08-18|CI action shell ran lefthook with `HOME` unset, so Git-based bats checks failed|set the GitHub Actions job `HOME` explicitly to `/home/runner`

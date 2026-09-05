@@ -2,7 +2,7 @@
 
 Commits and pull requests in this repository may be written by a machine, and
 may be merged without a human reading the diff. The merge gate is this
-repository's own checks plus an automated review — not human approval.
+repository's own checks plus an automated review - not human approval.
 
 Some classes of change are held for a human by design: releases, anything
 touching the loop's own safety rails, and anything that could publish to a
@@ -44,7 +44,7 @@ reporting as one.
 ## What governs the loop here
 
 [`SPEC.md`](../SPEC.md) is checked in beside the code and carries these
-sections: `§B §C §G §I §T §V`. Where a `§B` is present it is the defect log —
+sections: `section B, section C, section G, section I, section T, section V`. Where a `section B` is present it is the defect log -
 what got through, in the loop's own words, including defects that survived for
 weeks and defects a gate itself caused.
 
@@ -55,7 +55,7 @@ missed.
 ## The guardrails are this repository's own
 
 This repository is gated by `lefthook.yml`. Before a machine-authored branch is
-pushed, it is run against that gate — the same checks a human gets on
+pushed, it is run against that gate - the same checks a human gets on
 `git commit`, in the same environment continuous integration uses. A change the
 gate refuses is not pushed and no pull request is opened for it.
 
