@@ -44,9 +44,9 @@ reporting as one.
 ## What governs the loop here
 
 [`SPEC.md`](../SPEC.md) is checked in beside the code and carries these
-sections: `section B, section C, section G, section I, section T, section V`. Where a `section B` is present it is the defect log -
-what got through, in the loop's own words, including defects that survived for
-weeks and defects a gate itself caused.
+sections for bugs, controls, governance, integrity, testing, and vocabulary.
+The bugs section is the defect log: what got through, in the loop's own words,
+including defects that survived for weeks and defects a gate itself caused.
 
 Those entries are worth more than a green badge. A gate is a claim about what
 it catches, and the only honest way to describe one is alongside what it
