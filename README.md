@@ -1,5 +1,11 @@
 # nix-config-example
 
+<!-- hallucinogen:autonomy-disclaimer start -->
+> Read [LLM-DISCLAIMER](docs/LLM-DISCLAIMER.md) first -- this repository is
+> tended by an autonomous loop, and that file says what the loop may do here,
+> what it may not, and what to check before trusting anything in this tree.
+<!-- hallucinogen:autonomy-disclaimer end -->
+
 **One flake closure to rule all architectures and OS.**
 
 Cross-platform Nix dev environment template with Claude

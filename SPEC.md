@@ -132,6 +132,7 @@ B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only
 B31|2026-08-08|upstream nixfmt reformatted the editorconfig checker binding|apply the current nixfmt layout
 B32|2026-08-08|SPEC.md exceeded the generic 8 KiB file-size limit as bug history grew|set an explicit 16 KiB Markdown limit
 B33|2026-08-08|narrow-language Markdown check scanned Python files and rejected their vocabulary|scope Markdown and Nix checks to their matching file extensions
+B34|2026-09-05|README.md contains a Unicode em dash rejected by narrow-language-markdown|replace it with ASCII punctuation
 B34|2026-08-08|narrow-language glob filtered command selection but {push_files} still passed every file to the Nix checker|filter push-file arguments by extension in the command
 B35|2026-08-08|pre-commit Markdown checker ran on every staged file despite its name|scope the command to Markdown files and filter staged-file arguments by extension
 B36|2026-08-08|narrow-language dictionaries lacked vocabulary introduced by the mirror compatibility code and CI hook scoping|add the missing words to the matching language dictionaries
@@ -141,9 +142,12 @@ B38|2026-08-12|several nix-lefthook inputs dropped packages.default and justfile
 B39|2026-08-12|justfile-alphabetical remote remained registered after its unavailable tool was removed, so CI pre-push invoked a missing command|remove the stale lefthook remote and flake input
 B40|2026-08-12|git-no-local-paths remote was registered but its executable was absent from the dev shell, so CI pre-push exited 127|include the git-no-local-paths hook package in the dev shell
 B41|2026-08-12|CI selected devShells.ci, which was an empty shell because its package list was commented out|reuse the fully provisioned default dev shell for CI
+B42|2026-09-05|LLM disclaimer used non-ASCII punctuation and section markers, so narrow-language-markdown rejected it|rewrite the affected wording with ASCII characters
+B48|2026-09-05|the ASCII rewrite of the LLM disclaimer left a 131-character Markdown line, so markdownlint rejected the change|wrap the disclaimer paragraph to the configured 80-character limit
 B42|2026-08-12|narrow-language file filters used over-escaped grep regexes, so Markdown received flake.nix|use single-backslash extension regexes for staged and pushed files
 B43|2026-08-12|narrow-language Nix dictionary lacked the valid `rec` keyword used by flake.nix|add `rec` to the Nix dictionary
 B44|2026-08-18|CI action shell ran lefthook with `HOME` unset, so Git-based bats checks failed|set the GitHub Actions job `HOME` explicitly to `/home/runner`
 B45|2026-08-18|CI action did not preserve the job-level `HOME` inside the dev shell, so Git-based bats checks still failed|provide an isolated HOME fallback in the dev-shell hook when HOME is unset
 B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell narrow-language dictionary|add the new vocabulary to the shell dictionary
 B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to the failure-history section|add the missing words to the Markdown dictionary
+B49|2026-09-05|pre-commit Markdown narrow-language hook omitted its dictionary binding, leaving hook behavior inconsistent with pre-push|bind the pre-commit hook to .narrow-language-markdown.dic
