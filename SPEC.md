@@ -150,3 +150,4 @@ B44|2026-08-18|CI action shell ran lefthook with `HOME` unset, so Git-based bats
 B45|2026-08-18|CI action did not preserve the job-level `HOME` inside the dev shell, so Git-based bats checks still failed|provide an isolated HOME fallback in the dev-shell hook when HOME is unset
 B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell narrow-language dictionary|add the new vocabulary to the shell dictionary
 B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to the failure-history section|add the missing words to the Markdown dictionary
+B49|2026-09-05|pre-commit Markdown narrow-language hook omitted its dictionary binding, leaving hook behavior inconsistent with pre-push|bind the pre-commit hook to .narrow-language-markdown.dic
