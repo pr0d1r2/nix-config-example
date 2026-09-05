@@ -126,6 +126,7 @@ B25|2026-07-28|NVD mirror changes lacked policy coverage; parallel Nix checks ex
 B26|2026-08-07|nix-lefthook-editorconfig-checker dropped packages.default; its checker remains in devShells.default|use the checker package from the upstream devShell inputs
 B27|2026-08-08|Vulnix requests legacy CVE JSON/XZ feeds while the mirror only served NVD 2.0 JSON/GZip feeds|serve a compatibility conversion from NVD 2.0 feeds to Vulnix's legacy format
 B28|2026-08-08|single-threaded local NVD mirror could block vulnix behind a readiness or slow feed request until its 10-second timeout|serve feed requests with a reusable threaded HTTP server
+B33|2026-09-05|README.md contained non-ASCII punctuation but ascii-only scans it|replace the Unicode em dash with an ASCII hyphen
 B32|2026-08-18|nix-lefthook-statix dropped packages.default|use the statix package from its upstream devShell inputs
 B29|2026-08-08|legacy feed conversion still ran inside each Vulnix request and exceeded its 10-second timeout|precompute legacy feed responses before the mirror readiness probe
 B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only skips ValueError|convert missing-id KeyError to ValueError before vulnix parses feeds
@@ -151,3 +152,4 @@ B45|2026-08-18|CI action did not preserve the job-level `HOME` inside the dev sh
 B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell narrow-language dictionary|add the new vocabulary to the shell dictionary
 B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to the failure-history section|add the missing words to the Markdown dictionary
 B49|2026-09-05|pre-commit Markdown narrow-language hook omitted its dictionary binding, leaving hook behavior inconsistent with pre-push|bind the pre-commit hook to .narrow-language-markdown.dic
+B50|2026-09-05|SPEC.md bug-history vocabulary was missing from the Markdown narrow-language dictionary|add the missing vocabulary to the Markdown dictionary
