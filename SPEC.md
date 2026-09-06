@@ -154,3 +154,4 @@ B46|2026-08-18|B45 shell-hook comments introduced words missing from the shell n
 B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to the failure-history section|add the missing words to the Markdown dictionary
 B49|2026-09-05|pre-commit Markdown narrow-language hook omitted its dictionary binding, leaving hook behavior inconsistent with pre-push|bind the pre-commit hook to .narrow-language-markdown.dic
 B50|2026-09-05|SPEC.md bug-history vocabulary was missing from the Markdown narrow-language dictionary|add the missing vocabulary to the Markdown dictionary
+B51|2026-09-06|README.md used a non-ASCII em dash in the autonomous disclaimer|replace it with an ASCII hyphen
