@@ -116,7 +116,7 @@ B15|2026-07-25|pin update introduced 7 new unwhitelisted CVEs (bytes, gawk, glib
 B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but not to .narrow-language-other.dic|add 4 words (gawk, glib, gzip, util) to dic
 B17|2026-07-25|SPEC.md uses CVE not in markdown dic|add cve to markdown dic
 B18|2026-07-26|stable ldns and openssh have new CVEs|overlay fixed versions from unstable
-B41|2026-09-06|README.md used a non-ASCII em dash|replace it with an ASCII hyphen
+B23|2026-09-06|README.md used a non-ASCII em dash|replace it with an ASCII hyphen
 B19|2026-07-26|ARM runner flake eval hit default hook timeout|set ARM flake eval and check timeout 120
 B20|2026-07-26|case patterns were indented but shfmt requires them aligned with case|align case patterns with case
 B21|2026-07-26|B20 added 6 words missing from markdown dic|add missing words to dic
@@ -155,3 +155,5 @@ B47|2026-08-18|CI narrow-language Markdown check rejected vocabulary added to th
 B49|2026-09-05|pre-commit Markdown narrow-language hook omitted its dictionary binding, leaving hook behavior inconsistent with pre-push|bind the pre-commit hook to .narrow-language-markdown.dic
 B50|2026-09-05|SPEC.md bug-history vocabulary was missing from the Markdown narrow-language dictionary|add the missing vocabulary to the Markdown dictionary
 B51|2026-09-06|README.md used a non-ASCII em dash in the autonomous disclaimer|replace it with an ASCII hyphen
+B52|2026-09-06|README.md autonomous disclaimer exceeded the 80-character Markdown line limit|wrap the disclaimer blockquote across three lines
+B53|2026-09-06|README.md disclaimer blockquote remained over the 80-character Markdown line limit|wrap each blockquote line within the configured limit
