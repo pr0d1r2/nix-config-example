@@ -116,6 +116,7 @@ B15|2026-07-25|pin update introduced 7 new unwhitelisted CVEs (bytes, gawk, glib
 B16|2026-07-25|B15 CVE whitelist added gawk/glib/gzip/util-linux to .toml but not to .narrow-language-other.dic|add 4 words (gawk, glib, gzip, util) to dic
 B17|2026-07-25|SPEC.md uses CVE not in markdown dic|add cve to markdown dic
 B18|2026-07-26|stable ldns and openssh have new CVEs|overlay fixed versions from unstable
+B41|2026-09-06|README.md used a non-ASCII em dash|replace it with an ASCII hyphen
 B19|2026-07-26|ARM runner flake eval hit default hook timeout|set ARM flake eval and check timeout 120
 B20|2026-07-26|case patterns were indented but shfmt requires them aligned with case|align case patterns with case
 B21|2026-07-26|B20 added 6 words missing from markdown dic|add missing words to dic
