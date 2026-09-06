@@ -44,10 +44,13 @@ sudo nixos-rebuild switch --flake .
 
 - **Nix flakes** with pinned nixpkgs 25.11
 - **home-manager** for user-level config (git, zsh, direnv, delta)
-- **Claude Code** declaratively configured via [nix-home-manager-claude-code](https://github.com/pr0d1r2/nix-home-manager-claude-code)
+- **Claude Code** declaratively configured via
+  [nix-home-manager-claude-code][claude-code]
 - **30+ git hooks** via lefthook (auto-installed on shell entry)
 - **Dev shell** with linters, formatters, test tools
 - **CI** that evaluates and builds all configurations
+
+[claude-code]: https://github.com/pr0d1r2/nix-home-manager-claude-code
 
 ## Configurations
 

@@ -158,3 +158,4 @@ B50|2026-09-05|SPEC.md bug-history vocabulary was missing from the Markdown narr
 B51|2026-09-06|README.md used a non-ASCII em dash in the autonomous disclaimer|replace it with an ASCII hyphen
 B52|2026-09-06|README.md autonomous disclaimer exceeded the 80-character Markdown line limit|wrap the disclaimer blockquote across three lines
 B53|2026-09-06|README.md disclaimer blockquote remained over the 80-character Markdown line limit|wrap each blockquote line within the configured limit
+B55|2026-09-06|README.md package link exceeded the 80-character Markdown line limit|wrap the package description and link across two lines
