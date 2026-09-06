@@ -159,3 +159,4 @@ B51|2026-09-06|README.md used a non-ASCII em dash in the autonomous disclaimer|r
 B52|2026-09-06|README.md autonomous disclaimer exceeded the 80-character Markdown line limit|wrap the disclaimer blockquote across three lines
 B53|2026-09-06|README.md disclaimer blockquote remained over the 80-character Markdown line limit|wrap each blockquote line within the configured limit
 B55|2026-09-06|README.md package link exceeded the 80-character Markdown line limit|wrap the package description and link across two lines
+B56|2026-09-06|SPEC.md bug-history entry used words missing from the Markdown dictionary|add description, link, and two to the dictionary
