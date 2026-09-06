@@ -123,6 +123,7 @@ B21|2026-07-26|B20 added 6 words missing from markdown dic|add missing words to 
 B22|2026-07-26|Darwin flake checks exceeded the 120-second CI timeout|increase Darwin flake check and eval timeout to 300 seconds
 B23|2026-07-28|mutable NVD mirror feeds no longer matched hashes pinned by the upstream flake revision|pin the feed snapshot to its immutable gh-pages commit
 B24|2026-07-28|mirror fix had inline shell and new words; repeated lefthook inputs made the lock too large|extract shell, update dictionaries, and reuse lock inputs
+B54|2026-09-06|README.md used a non-ASCII em dash|replace it with an ASCII hyphen
 B25|2026-07-28|NVD mirror changes lacked policy coverage; parallel Nix checks exhausted timeouts; the store cache was read-only|complete coverage, serialize heavy checks, raise timeouts, and make the copied cache writable
 B26|2026-08-07|nix-lefthook-editorconfig-checker dropped packages.default; its checker remains in devShells.default|use the checker package from the upstream devShell inputs
 B27|2026-08-08|Vulnix requests legacy CVE JSON/XZ feeds while the mirror only served NVD 2.0 JSON/GZip feeds|serve a compatibility conversion from NVD 2.0 feeds to Vulnix's legacy format
