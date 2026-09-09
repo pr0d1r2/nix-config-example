@@ -131,6 +131,7 @@ B28|2026-08-08|single-threaded local NVD mirror could block vulnix behind a read
 B33|2026-09-05|README.md contained non-ASCII punctuation but ascii-only scans it|replace the Unicode em dash with an ASCII hyphen
 B32|2026-08-18|nix-lefthook-statix dropped packages.default|use the statix package from its upstream devShell inputs
 B29|2026-08-08|legacy feed conversion still ran inside each Vulnix request and exceeded its 10-second timeout|precompute legacy feed responses before the mirror readiness probe
+B55|2026-09-08|README.md used a non-ASCII em dash|replace it with an ASCII hyphen
 B30|2026-08-08|NVD mirror contains records without the id field, but vulnix only skips ValueError|convert missing-id KeyError to ValueError before vulnix parses feeds
 B31|2026-08-08|upstream nixfmt reformatted the editorconfig checker binding|apply the current nixfmt layout
 B32|2026-08-08|SPEC.md exceeded the generic 8 KiB file-size limit as bug history grew|set an explicit 16 KiB Markdown limit
