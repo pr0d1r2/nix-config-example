@@ -74,7 +74,7 @@ V14: personalization ! not break existing invariants (V1–V11 hold after fork c
 ## §T TASKS
 
 id|status|task|cites
-T1|.|capture one failing CI run and isolate the first red check|V7
+T1|x|capture one failing CI run and isolate the first red check|V7
 T2|.|make lefthook CI checks pass independently of builds|V1,V2,V3,V8,V10
 T3|.|make all 3 flake evaluations pass independently of builds|V4,V5,V6,V13
 T4|.|make darwin + linux + linux-arm CI builds pass|V7
@@ -161,3 +161,4 @@ B52|2026-09-06|README.md autonomous disclaimer exceeded the 80-character Markdow
 B53|2026-09-06|README.md disclaimer blockquote remained over the 80-character Markdown line limit|wrap each blockquote line within the configured limit
 B55|2026-09-06|README.md package link exceeded the 80-character Markdown line limit|wrap the package description and link across two lines
 B56|2026-09-06|SPEC.md bug-history entry used words missing from the Markdown dictionary|add description, link, and two to the dictionary
+B57|2026-09-28|local CI-equivalent hook run was started outside the dev shell and stopped at the first setup check because Nix experimental features were disabled|reproduce through `nix develop` and classify the environment failure separately from repository checks
