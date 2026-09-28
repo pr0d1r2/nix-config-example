@@ -75,7 +75,7 @@ V14: personalization ! not break existing invariants (V1–V11 hold after fork c
 
 id|status|task|cites
 T1|x|capture one failing CI run and isolate the first red check|V7
-T2|.|make lefthook CI checks pass independently of builds|V1,V2,V3,V8,V10
+T2|x|make lefthook CI checks pass independently of builds|V1,V2,V3,V8,V10
 T3|.|make all 3 flake evaluations pass independently of builds|V4,V5,V6,V13
 T4|.|make darwin + linux + linux-arm CI builds pass|V7
 T5|x|scaffold flake w/ darwin + nixos configs (3 platforms)|-
