@@ -137,12 +137,16 @@ pre-commit:
       glob: "*.py"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-python.dic
-      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\.py$')
+      run: >-
+        files=$(printf '%s\n' {staged_files} | grep -E '\.py$' || true);
+        if [ -n "$files" ]; then lefthook-narrow-language $files; fi
     narrow-language-markdown:
       glob: "*.md"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-markdown.dic
-      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\.md$')
+      run: >-
+        files=$(printf '%s\n' {staged_files} | grep -E '\.md$' || true);
+        if [ -n "$files" ]; then lefthook-narrow-language $files; fi
     narrow-language-nix-add:
       skip: true
     narrow-language-shell-add:
@@ -224,17 +228,23 @@ pre-push:
       glob: "*.nix"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-nix.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.nix$')
+      run: >-
+        files=$(printf '%s\n' {push_files} | grep -E '\.nix$' || true);
+        if [ -n "$files" ]; then lefthook-narrow-language $files; fi
     narrow-language-python:
       glob: "*.py"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-python.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.py$')
+      run: >-
+        files=$(printf '%s\n' {push_files} | grep -E '\.py$' || true);
+        if [ -n "$files" ]; then lefthook-narrow-language $files; fi
     narrow-language-markdown:
       glob: "*.md"
       env:
         NARROW_LANGUAGE_DICT: .narrow-language-markdown.dic
-      run: lefthook-narrow-language $(printf '%s\n' {push_files} | grep -E '\.md$')
+      run: >-
+        files=$(printf '%s\n' {push_files} | grep -E '\.md$' || true);
+        if [ -n "$files" ]; then lefthook-narrow-language $files; fi
     narrow-language-other:
       exclude:
         - "*.nix"
