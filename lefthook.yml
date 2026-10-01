@@ -132,7 +132,11 @@ pre-commit:
   setup:
     - run: bash scripts/lefthook/require-dev-shell.sh
   commands:
-    narrow-language-nix: {}
+    narrow-language-nix:
+      glob: "*.nix"
+      env:
+        NARROW_LANGUAGE_DICT: .narrow-language-nix.dic
+      run: lefthook-narrow-language $(printf '%s\n' {staged_files} | grep -E '\.nix$')
     narrow-language-python:
       glob: "*.py"
       env:
