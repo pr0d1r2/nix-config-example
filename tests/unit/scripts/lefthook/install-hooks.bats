@@ -15,3 +15,9 @@ setup() {
   run head -1 "$REPO_ROOT/scripts/lefthook/install-hooks.sh"
   assert_output --partial "#!/usr/bin/env bash"
 }
+
+@test "install-hooks.sh has the lefthook flag" {
+  run grep -F 'LEFTHOOK" = "0' \
+    "$REPO_ROOT/scripts/lefthook/install-hooks.sh"
+  assert_success
+}

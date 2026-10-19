@@ -15,3 +15,14 @@ setup() {
   run head -1 "$REPO_ROOT/scripts/lefthook/require-dev-shell.sh"
   assert_output --partial "#!/usr/bin/env bash"
 }
+
+@test "hook scripts have the x bit" {
+  run find "$REPO_ROOT/scripts/lefthook" -type f -name '*.sh' ! -perm -u+x -print
+  assert_success
+  refute_output
+}
+
+@test "require-dev-shell has no command case" {
+  run bash "$REPO_ROOT/scripts/lefthook/require-dev-shell.sh"
+  assert_success
+}
