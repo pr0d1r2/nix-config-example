@@ -4,4 +4,5 @@
 substituteInPlace "$out/bin/lefthook-vulnix-scan" \
   --replace-fail \
   'cp "$VULNIX_CACHE_SOURCE/Data.fs" "$cache_dir/Data.fs"' \
-  'cp --no-preserve=mode "$VULNIX_CACHE_SOURCE/Data.fs" "$cache_dir/Data.fs"'
+  'cp --no-preserve=mode "$VULNIX_CACHE_SOURCE/Data.fs" "$cache_dir/Data.fs"
+  export VULNIX_OFFLINE=1'
