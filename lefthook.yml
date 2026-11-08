@@ -213,10 +213,12 @@ pre-commit:
         - "flake.lock"
       # The remote job compacts and extends the dictionary from files
       # matching NARROW_LANGUAGE_GLOB_INCLUDE, but checks every file not
-      # excluded. Match the extensionless dotfiles and LICENSE it checks,
-      # or compaction drops their words and the check fails.
+      # excluded. Compact over every file minus the same exclude list, or
+      # compaction drops words a checked file needs and the check fails.
       env:
-        NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA: '^(\.[a-z-]+|LICENSE)$'
+        NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA: "."
+        NARROW_LANGUAGE_EXCLUDE_FILES: >-
+          *.nix:*.sh:*.bats:*.py:*.rb:*.js:*.jsx:*.ts:*.tsx:*.erb:*.hcl:*.tf:*.css:*.scss:*.md:*.dic
     tdd-order-bats:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
