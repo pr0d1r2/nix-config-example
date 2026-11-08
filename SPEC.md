@@ -166,4 +166,4 @@ B58|2026-11-08|narrow-language remote folded add and compact into each job; the 
 B59|2026-11-08|narrow-language-other compacted against yml/toml/json only but checked LICENSE and dotfiles, so compaction dropped their words|set `NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA` to match those files
 B60|2026-11-08|let bindings named yamllint, statix and markdownlint shadowed the `with pkgs` entries, so the shell had no yamllint binary and the yamllint hook failed in CI|rename the bindings to lefthookYamllint, lefthookStatix and lefthookMarkdownlint
 B61|2026-11-08|local remote cache from July hid all of the above; CI fetches remotes fresh|refetch remotes daily
-B62|2026-11-08|narrow-language-other included `dic` files, so each run copied every other dictionary into the other dictionary|override the include without `dic`
+B62|2026-11-08|pinned narrow-language tools predated the remote config: their add and compact read the other dictionaries, so each run copied them into the other dictionary|update the nix-lefthook-narrow-language input
