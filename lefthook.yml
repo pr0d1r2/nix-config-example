@@ -211,11 +211,12 @@ pre-commit:
         - "*.md"
         - "*.dic"
         - "flake.lock"
-      # The remote job compacts the dictionary against files matching
-      # NARROW_LANGUAGE_GLOB_INCLUDE, but checks every file not excluded.
-      # Match the extensionless dotfiles and LICENSE it would miss, or
-      # compaction drops their words and the check fails.
+      # The remote job compacts and extends the dictionary from files
+      # matching NARROW_LANGUAGE_GLOB_INCLUDE, but checks every file not
+      # excluded. Match the extensionless dotfiles and LICENSE it checks,
+      # and drop `dic` so it does not copy the other dictionaries' words.
       env:
+        NARROW_LANGUAGE_GLOB_INCLUDE: '\.(yml|yaml|toml|tcl|jsonc|json|envrc)$|justfile|Gemfile'
         NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA: '^(\.[a-z-]+|LICENSE)$'
     tdd-order-bats:
       env:
