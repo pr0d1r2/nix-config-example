@@ -40,12 +40,13 @@ jobs:
           keep-home: "true"
 
   build-linux-arm:
-    runs-on: ubuntu-latest
+    # Native ARM runner: the action runs `nix build` for the runner system
+    # only, so x86_64 jobs with extra-platforms skip aarch64-linux.
+    runs-on: ubuntu-24.04-arm
     env:
       HOME: /home/runner
     steps:
       - uses: pr0d1r2/nix-lefthook-ci-action@311740298599dab21f2dc0f83f1d8c974215d197
         with:
           skip-lefthook: "true"
-          extra-platforms: aarch64-linux
           keep-home: "true"
