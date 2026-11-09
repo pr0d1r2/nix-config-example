@@ -402,7 +402,6 @@ lan
 lands
 language
 large
-later
 layout
 least
 leaving
@@ -491,7 +490,6 @@ number
 obvious
 off
 omitted
-once
 one
 ones
 only
@@ -676,6 +674,7 @@ shadowed
 shell
 shellcheck
 shells
+ship
 ships
 shorten
 should
@@ -843,6 +842,7 @@ wrong
 wrote
 yaml
 yamllint
+yet
 you
 your
 yourself

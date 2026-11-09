@@ -77,15 +77,10 @@
 [yasm]
 [zlib]
 
-# Scoped to one version and CVE, with an expiry. A failing pre-push scan
-# on 2026-11-08 flagged these; later scans with fresh NVD data did not.
-# Re-check when they expire or when nixpkgs bumps the package.
-["brotli-1.2.0"]
-cve = ["CVE-2026-111497"]
-until = "2027-02-09"
-comment = "upstream nixpkgs; flagged once on 2026-11-08"
-
+# Scoped to one version and CVE, with an expiry. Fixed in ruby 3.4.12,
+# which nixos-26.05 does not ship yet (3.4.11 as of 2026-11-09). Remove
+# this entry when nixpkgs-lock moves to a 26.05 revision with 3.4.12.
 ["ruby-3.4.9"]
 cve = ["CVE-2026-97229"]
 until = "2027-02-09"
-comment = "upstream nixpkgs; flagged once on 2026-11-08"
+comment = "upstream nixpkgs; fixed in 3.4.12, not yet in nixos-26.05"

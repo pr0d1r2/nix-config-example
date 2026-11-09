@@ -26,10 +26,8 @@ binutils
 boost
 branch
 branches
-brotli
 build
 bumping
-bumps
 busybox
 but
 bytes
@@ -75,7 +73,6 @@ daily
 damages
 darwin
 dash
-data
 dbus
 deadnix
 deal
@@ -86,7 +83,6 @@ dev
 dic
 dict
 dictionary
-did
 diff
 dir
 direnv
@@ -94,10 +90,12 @@ disable
 distribute
 document
 documentation
+does
 drops
 editorconfig
 embedded
 end
+entry
 env
 erb
 eval
@@ -110,14 +108,12 @@ excluded
 exec
 execute
 experimental
-expire
 expiry
 express
 extend
 extends
 extensions
 extra
-failing
 fails
 failure
 failures
@@ -129,7 +125,7 @@ files
 final
 find
 fitness
-flagged
+fixed
 flake
 flakes
 flex
@@ -141,7 +137,6 @@ free
 freetype
 freeze
 frequency
-fresh
 from
 functions
 furnished
@@ -178,7 +173,6 @@ keep
 kind
 language
 lapack
-later
 latest
 lefthook
 length
@@ -220,6 +214,7 @@ minus
 missing
 mit
 modify
+moves
 name
 nano
 narrow
@@ -239,7 +234,6 @@ nowicki
 nproc
 null
 obtaining
-once
 one
 only
 openssl
@@ -249,7 +243,6 @@ otherwise
 out
 output
 over
-package
 parallel
 parse
 particular
@@ -284,12 +277,14 @@ ref
 refetch
 remote
 remotes
+remove
 repo
 request
 require
 restriction
 result
 review
+revision
 rights
 root
 ruby
@@ -301,7 +296,6 @@ runs
 safe
 same
 scan
-scans
 scoped
 scripts
 sell
@@ -311,6 +305,7 @@ sha
 shall
 shell
 shellcheck
+ship
 single
 size
 skip
@@ -343,7 +338,6 @@ the
 them
 then
 these
-they
 this
 time
 timeout
@@ -385,6 +379,7 @@ what
 wheel
 when
 whether
+which
 whitelist
 whitespace
 whom
@@ -395,4 +390,5 @@ xargs
 yaml
 yamllint
 yasm
+yet
 zlib
