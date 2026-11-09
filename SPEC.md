@@ -162,3 +162,8 @@ B53|2026-09-06|README.md disclaimer blockquote remained over the 80-character Ma
 B55|2026-09-06|README.md package link exceeded the 80-character Markdown line limit|wrap the package description and link across two lines
 B56|2026-09-06|SPEC.md bug-history entry used words missing from the Markdown dictionary|add description, link, and two to the dictionary
 B57|2026-09-28|local CI-equivalent hook run was started outside the dev shell and stopped at the first setup check because Nix experimental features were disabled|reproduce through `nix develop` and classify the environment failure separately from repository checks
+B58|2026-11-08|narrow-language remote folded add and compact into each job; the eight `*-add` and `*-compact` overrides then had no run, so lefthook failed them|remove the stale overrides
+B59|2026-11-08|narrow-language-other compacted against yml/toml/json only but checked LICENSE and dotfiles, so compaction dropped their words|set `NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA` to match those files
+B60|2026-11-08|let bindings named yamllint, statix and markdownlint shadowed the `with pkgs` entries, so the shell had no yamllint binary and the yamllint hook failed in CI|rename the bindings to lefthookYamllint, lefthookStatix and lefthookMarkdownlint
+B61|2026-11-08|local remote cache from July hid all of the above; CI fetches remotes fresh|refetch remotes daily
+B62|2026-11-08|pinned narrow-language tools predated the remote config: their add and compact read the other dictionaries, so each run copied them into the other dictionary|update the nix-lefthook-narrow-language input

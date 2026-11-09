@@ -443,7 +443,7 @@
               p: (p.name or "") == "lefthook-editorconfig-checker"
             ) nix-lefthook-editorconfig-checker.devShells.${sys}.default.nativeBuildInputs
           );
-          yamllint = builtins.head (
+          lefthookYamllint = builtins.head (
             builtins.filter (
               p: (p.name or "") == "lefthook-yamllint"
             ) nix-lefthook-yamllint.devShells.${sys}.default.nativeBuildInputs
@@ -458,12 +458,12 @@
               p: (p.name or "") == "lefthook-git-no-local-paths"
             ) nix-lefthook-git-no-local-paths.devShells.${sys}.default.nativeBuildInputs
           );
-          markdownlint = builtins.head (
+          lefthookMarkdownlint = builtins.head (
             builtins.filter (
               p: (p.name or "") == "lefthook-markdownlint"
             ) nix-lefthook-markdownlint.devShells.${sys}.default.nativeBuildInputs
           );
-          statix = builtins.head (
+          lefthookStatix = builtins.head (
             builtins.filter (
               p: (p.name or "") == "lefthook-statix"
             ) nix-lefthook-statix.devShells.${sys}.default.nativeBuildInputs
@@ -480,7 +480,7 @@
               nix-lefthook-typos.packages.${sys}.default
               nix-lefthook-shellcheck.packages.${sys}.default
               nix-lefthook-shfmt.packages.${sys}.default
-              yamllint
+              lefthookYamllint
               nix-lefthook-nix-flake-eval.packages.${sys}.default
               nix-lefthook-ascii-only.packages.${sys}.default
               nix-lefthook-trailing-whitespace.packages.${sys}.default
@@ -495,14 +495,14 @@
               nix-lefthook-bats-failures-only.packages.${sys}.default
               nix-lefthook-bats-changed.packages.${sys}.default
               nix-lefthook-taplo.packages.${sys}.default
-              statix
+              lefthookStatix
               vulnixScan
               nix-lefthook-commit-msg-lint.packages.${sys}.default
               editorconfigChecker
               nix-lefthook-execute-permissions.packages.${sys}.default
               nix-lefthook-file-size-check.packages.${sys}.default
               nix-lefthook-gitleaks.packages.${sys}.default
-              markdownlint
+              lefthookMarkdownlint
               nix-lefthook-linter-coverage.packages.${sys}.default
               nix-lefthook-nix-flake-check.packages.${sys}.default
               nix-lefthook-tdd-order-bats.packages.${sys}.default

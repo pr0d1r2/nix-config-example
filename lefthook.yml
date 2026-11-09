@@ -1,129 +1,162 @@
 output:
   - failure
 
+# Remotes track main; lefthook clones by branch, so a commit SHA cannot
+# pin them. Refetch daily so local hooks match what CI fetches.
 remotes:
   - git_url: https://github.com/pr0d1r2/nix-lefthook-trailing-whitespace
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-git-conflict-markers
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-missing-final-newline
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-deadnix
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-typos
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-nixfmt
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-shellcheck
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-shfmt
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-yamllint
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-tcl-syntax
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-unicode-lint
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-no-shell-functions
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-bats-parse
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-bats-changed
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-taplo
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-statix
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-flake-eval
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-ascii-only
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-vulnix-scan
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-commit-msg-lint
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-editorconfig-checker
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-execute-permissions
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-file-size-check
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-gitleaks
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-markdownlint
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-no-embedded-shell
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-linter-coverage
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-nix-flake-check
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-narrow-language
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-tdd-order-bats
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
   - git_url: https://github.com/pr0d1r2/nix-lefthook-actionlint
     ref: main
+    refetch_frequency: 24h
     configs:
       - lefthook-remote.yml
 
@@ -151,22 +184,6 @@ pre-commit:
       run: >-
         files=$(printf '%s\n' {staged_files} | grep -E '\.md$' || true);
         if [ -n "$files" ]; then lefthook-narrow-language $files; fi
-    narrow-language-nix-add:
-      skip: true
-    narrow-language-shell-add:
-      skip: true
-    narrow-language-markdown-add:
-      skip: true
-    narrow-language-other-add:
-      skip: true
-    narrow-language-nix-compact:
-      skip: true
-    narrow-language-shell-compact:
-      skip: true
-    narrow-language-markdown-compact:
-      skip: true
-    narrow-language-other-compact:
-      skip: true
     narrow-language-nix-freeze:
       skip: true
     narrow-language-shell-freeze:
@@ -194,6 +211,14 @@ pre-commit:
         - "*.md"
         - "*.dic"
         - "flake.lock"
+      # The remote job compacts and extends the dictionary from files
+      # matching NARROW_LANGUAGE_GLOB_INCLUDE, but checks every file not
+      # excluded. Compact over every file minus the same exclude list, or
+      # compaction drops words a checked file needs and the check fails.
+      env:
+        NARROW_LANGUAGE_GLOB_INCLUDE_EXTRA: "."
+        NARROW_LANGUAGE_EXCLUDE_FILES: >-
+          *.nix:*.sh:*.bats:*.py:*.rb:*.js:*.jsx:*.ts:*.tsx:*.erb:*.hcl:*.tf:*.css:*.scss:*.md:*.dic
     tdd-order-bats:
       env:
         LEFTHOOK_TDD_SPEC_DIR: tests/unit
