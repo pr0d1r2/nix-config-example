@@ -75,6 +75,7 @@ box
 branch
 break
 broke
+brotli
 budget
 bug
 bugs
@@ -282,6 +283,7 @@ first
 fix
 fixed
 fixes
+flagged
 flake
 flakes
 flattering
@@ -628,6 +630,7 @@ rewrite
 right
 round
 rpi
+ruby
 rule
 rules
 run
@@ -671,6 +674,7 @@ shadowed
 shell
 shellcheck
 shells
+ship
 ships
 shorten
 should
@@ -838,6 +842,7 @@ wrong
 wrote
 yaml
 yamllint
+yet
 you
 your
 yourself

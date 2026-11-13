@@ -48,6 +48,7 @@ code
 com
 command
 commands
+comment
 commit
 commonmark
 commti
@@ -66,6 +67,7 @@ copy
 copyright
 coverage
 curl
+cve
 cves
 daily
 damages
@@ -88,10 +90,12 @@ disable
 distribute
 document
 documentation
+does
 drops
 editorconfig
 embedded
 end
+entry
 env
 erb
 eval
@@ -104,6 +108,7 @@ excluded
 exec
 execute
 experimental
+expiry
 express
 extend
 extends
@@ -120,6 +125,7 @@ files
 final
 find
 fitness
+fixed
 flake
 flakes
 flex
@@ -208,6 +214,7 @@ minus
 missing
 mit
 modify
+moves
 name
 nano
 narrow
@@ -227,6 +234,7 @@ nowicki
 nproc
 null
 obtaining
+one
 only
 openssl
 order
@@ -269,14 +277,17 @@ ref
 refetch
 remote
 remotes
+remove
 repo
 request
 require
 restriction
 result
 review
+revision
 rights
 root
+ruby
 rubygems
 rules
 run
@@ -285,6 +296,7 @@ runs
 safe
 same
 scan
+scoped
 scripts
 sell
 setup
@@ -293,6 +305,7 @@ sha
 shall
 shell
 shellcheck
+ship
 single
 size
 skip
@@ -341,6 +354,7 @@ unblock
 unbound
 unicode
 unit
+until
 unused
 update
 upstream
@@ -352,6 +366,7 @@ utf
 util
 uuid
 vault
+version
 via
 vim
 void
@@ -364,6 +379,7 @@ what
 wheel
 when
 whether
+which
 whitelist
 whitespace
 whom
@@ -374,4 +390,5 @@ xargs
 yaml
 yamllint
 yasm
+yet
 zlib
