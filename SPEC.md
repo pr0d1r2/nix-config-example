@@ -168,3 +168,4 @@ B60|2026-11-08|let bindings named yamllint, statix and markdownlint shadowed the
 B61|2026-11-08|local remote cache from July hid all of the above; CI fetches remotes fresh|refetch remotes daily
 B62|2026-11-08|pinned narrow-language tools predated the remote config: their add and compact read the other dictionaries, so each run copied them into the other dictionary|update the nix-lefthook-narrow-language input
 B63|2026-11-08|vulnix-scan flagged brotli-1.2.0 CVE-2026-111497 and ruby-3.4.9 CVE-2026-97229|update nixpkgs-lock and nixpkgs-darwin to get brotli 1.2.1; whitelist the ruby CVE for 3.4.9 only, until 2027-02-09, as nixos-26.05 does not ship 3.4.12 yet
+B64|2026-11-20|.editorconfig set switch_case_indent for shell files, so shfmt wanted the case patterns in install-hooks.sh indented and the word case was missing from the other dic|indent the case patterns with shfmt -w and add case to the dic
